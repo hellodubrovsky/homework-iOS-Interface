@@ -13,6 +13,10 @@
 		F426A4BD27476F0700139640 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F426A4BB27476F0700139640 /* Main.storyboard */; };
 		F426A4BF27476F0900139640 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F426A4BE27476F0900139640 /* Assets.xcassets */; };
 		F426A4C227476F0900139640 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F426A4C027476F0900139640 /* LaunchScreen.storyboard */; };
+		F426A4CA274771B100139640 /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F426A4C9274771B100139640 /* ProfileView.xib */; };
+		F426A4CC274772DE00139640 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F426A4CB274772DE00139640 /* ProfileView.swift */; };
+		F426A4CE2747730E00139640 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F426A4CD2747730E00139640 /* Profile.storyboard */; };
+		F426A4D02747734200139640 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F426A4CF2747734200139640 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		F426A4BE27476F0900139640 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F426A4C127476F0900139640 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F426A4C327476F0900139640 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F426A4C9274771B100139640 /* ProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
+		F426A4CB274772DE00139640 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		F426A4CD2747730E00139640 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		F426A4CF2747734200139640 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +67,13 @@
 				F426A4B527476F0700139640 /* AppDelegate.swift */,
 				F426A4B727476F0700139640 /* SceneDelegate.swift */,
 				F426A4B927476F0700139640 /* ViewController.swift */,
+				F426A4CB274772DE00139640 /* ProfileView.swift */,
+				F426A4CF2747734200139640 /* ProfileViewController.swift */,
 				F426A4BB27476F0700139640 /* Main.storyboard */,
-				F426A4BE27476F0900139640 /* Assets.xcassets */,
+				F426A4CD2747730E00139640 /* Profile.storyboard */,
+				F426A4C9274771B100139640 /* ProfileView.xib */,
 				F426A4C027476F0900139640 /* LaunchScreen.storyboard */,
+				F426A4BE27476F0900139640 /* Assets.xcassets */,
 				F426A4C327476F0900139640 /* Info.plist */,
 			);
 			path = Netology_IB_Instruments;
@@ -125,7 +137,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F426A4CA274771B100139640 /* ProfileView.xib in Resources */,
 				F426A4C227476F0900139640 /* LaunchScreen.storyboard in Resources */,
+				F426A4CE2747730E00139640 /* Profile.storyboard in Resources */,
 				F426A4BF27476F0900139640 /* Assets.xcassets in Resources */,
 				F426A4BD27476F0700139640 /* Main.storyboard in Resources */,
 			);
@@ -138,7 +152,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F426A4CC274772DE00139640 /* ProfileView.swift in Sources */,
 				F426A4BA27476F0700139640 /* ViewController.swift in Sources */,
+				F426A4D02747734200139640 /* ProfileViewController.swift in Sources */,
 				F426A4B627476F0700139640 /* AppDelegate.swift in Sources */,
 				F426A4B827476F0700139640 /* SceneDelegate.swift in Sources */,
 			);
