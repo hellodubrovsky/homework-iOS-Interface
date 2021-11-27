@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F48F371D27522200008C6565 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F371C27522200008C6565 /* PostViewController.swift */; };
+		F48F371F27522217008C6565 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F371E27522217008C6565 /* ProfileViewController.swift */; };
+		F48F37212752290E008C6565 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F37202752290E008C6565 /* FeedViewController.swift */; };
 		F49DC37B27515432004F9DCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49DC37A27515432004F9DCE /* AppDelegate.swift */; };
 		F49DC37F27515432004F9DCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49DC37E27515432004F9DCE /* ViewController.swift */; };
 		F49DC38427515434004F9DCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49DC38327515434004F9DCE /* Assets.xcassets */; };
@@ -14,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F48F371C27522200008C6565 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		F48F371E27522217008C6565 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F48F37202752290E008C6565 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		F49DC37727515432004F9DCE /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49DC37A27515432004F9DCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F49DC37E27515432004F9DCE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +60,9 @@
 			children = (
 				F49DC37A27515432004F9DCE /* AppDelegate.swift */,
 				F49DC37E27515432004F9DCE /* ViewController.swift */,
+				F48F371C27522200008C6565 /* PostViewController.swift */,
+				F48F37202752290E008C6565 /* FeedViewController.swift */,
+				F48F371E27522217008C6565 /* ProfileViewController.swift */,
 				F49DC38527515434004F9DCE /* LaunchScreen.storyboard */,
 				F49DC38327515434004F9DCE /* Assets.xcassets */,
 				F49DC38827515434004F9DCE /* Info.plist */,
@@ -131,7 +140,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F48F371D27522200008C6565 /* PostViewController.swift in Sources */,
 				F49DC37F27515432004F9DCE /* ViewController.swift in Sources */,
+				F48F37212752290E008C6565 /* FeedViewController.swift in Sources */,
+				F48F371F27522217008C6565 /* ProfileViewController.swift in Sources */,
 				F49DC37B27515432004F9DCE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
