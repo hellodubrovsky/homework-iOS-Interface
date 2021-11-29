@@ -3,10 +3,10 @@
 ____
 1️⃣ **Lesson:**
 - Name: "Дизайн и пользовательский интерфейс"
-- Lecture: https://goo.su/tj5
-- Homework: https://goo.su/9syg
-- Useful link 1: https://goo.su/GJN
-- Useful link 2: https://goo.su/yvN
+- Lecture: https://netology.ru/profile/program/iosui-17/lessons/124689/lesson_items/636664
+- Homework: https://github.com/netology-code/iosui-homeworks/tree/iosui-8/1.1
+- Useful link 1: https://developer.apple.com/design/human-interface-guidelines/ios/overview/themes/
+- Useful link 2: https://medium.com/nona-web/ios-human-interface-guideline-f012a5ba962e
 - Instruction manual Git: https://goo.su/k56
 ____
 2️⃣ **Lesson:**
