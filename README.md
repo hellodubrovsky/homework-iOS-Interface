@@ -1,7 +1,7 @@
 # homework-iOS-Interface
 🔹 Netology. Lecture topic: Application Interface.
 ____
-**Lesson 1:**
+1️⃣ **Lesson:**
 - Name: "Дизайн и пользовательский интерфейс"
 - Lecture: https://netology.ru/profile/program/iosui-17/lessons/124689/lesson_items/636664
 - Homework: https://github.com/netology-code/iosui-homeworks/tree/iosui-8/1.1
@@ -9,13 +9,13 @@ ____
 - Useful link 2: https://developer.apple.com/design/human-interface-guidelines/ios/overview/themes/
 - Instruction manual Git: https://goo.su/k56
 ____
-**Lesson 2:**
+2️⃣ **Lesson:**
 - Name: "Инструменты для разработки интерфейса"
 - Lecture: https://netology.ru/profile/program/iosui-17/lessons/124690/lesson_items/636668
 - Homework: https://github.com/netology-code/iosui-homeworks/tree/iosui-8/1.2
 - Execution process: https://github.com/hellodubrovsky/homework-iOS-Interface/pull/1
 ____
-**Lesson 3:**
+3️⃣ **Lesson:**
 - Name: "Навигация в iOS и жизненный цикл UIViewController"
 - Lecture: https://netology.ru/profile/program/iosui-17/lessons/124691/lesson_items/636673
 - Homework: https://github.com/netology-code/iosui-homeworks/tree/iosui-8/1.3
