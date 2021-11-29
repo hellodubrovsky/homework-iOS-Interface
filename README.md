@@ -3,15 +3,15 @@
 ____
 1️⃣ **Lesson:**
 - Name: "Дизайн и пользовательский интерфейс"
-- Lecture: https://netology.ru/profile/program/iosui-17/lessons/124689/lesson_items/636664
-- Homework: https://github.com/netology-code/iosui-homeworks/tree/iosui-8/1.1
-- Useful link 1: https://medium.com/nona-web/ios-human-interface-guideline-f012a5ba962e
-- Useful link 2: https://developer.apple.com/design/human-interface-guidelines/ios/overview/themes/
+- Lecture: https://goo.su/tj5
+- Homework: https://goo.su/9syg
+- Useful link 1: https://goo.su/GJN
+- Useful link 2: https://goo.su/yvN
 - Instruction manual Git: https://goo.su/k56
 ____
 2️⃣ **Lesson:**
 - Name: "Инструменты для разработки интерфейса"
-- Lecture: https://netology.ru/profile/program/iosui-17/lessons/124690/lesson_items/636668
+- Lecture: https://goo.su/I9r
 - Homework: https://github.com/netology-code/iosui-homeworks/tree/iosui-8/1.2
 - Execution process: https://github.com/hellodubrovsky/homework-iOS-Interface/pull/1
 ____
