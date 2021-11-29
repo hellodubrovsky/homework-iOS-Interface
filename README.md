@@ -11,7 +11,7 @@ ____
 ____
 2️⃣ **Lesson:**
 - Name: "Инструменты для разработки интерфейса"
-- Lecture: https://goo.su/I9r
+- Lecture: https://netology.ru/profile/program/iosui-17/lessons/124690/lesson_items/636668
 - Homework: https://github.com/netology-code/iosui-homeworks/tree/iosui-8/1.2
 - Execution process: https://github.com/hellodubrovsky/homework-iOS-Interface/pull/1
 ____
