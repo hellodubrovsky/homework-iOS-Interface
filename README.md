@@ -24,7 +24,7 @@ ____
 - **Дополнительный материал 2:** https://www.swiftbysundell.com/basics/child-view-controllers/
 ____
 4️⃣ **Lesson:**
-- **Тема:** "Базовые UI компоненты"
+- **Тема:** "Базовые UI компоненты. Часть 1"
 - **Лекция:** https://netology.ru/profile/program/iosui-17/lessons/124692/lesson_items/636678
 - **Дополнительный материал 1:** https://developer.apple.com/documentation/uikit/uiview
 - **Дополнительный материал 2:** https://developer.apple.com/documentation/uikit/uiresponder
