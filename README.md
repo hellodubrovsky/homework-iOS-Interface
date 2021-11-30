@@ -6,7 +6,7 @@ ____
 - **Лекция:** https://netology.ru/profile/program/iosui-17/lessons/124689/lesson_items/636664
 - **Домашнее задание:** https://github.com/netology-code/iosui-homeworks/tree/iosui-8/1.1
 - **Дополнительный материал 1:** https://goo.su/9Pph
-- **Дополнительный материал 2:** https://medium.com/nona-web/ios-human-interface-guideline-f012a5ba962e
+- **Дополнительный материал 2:** https://goo.su/Flb
 - **Instruction manual Git:** https://goo.su/k56
 ____
 2️⃣ **Lesson:**
