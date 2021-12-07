@@ -33,7 +33,8 @@ ____
 5️⃣ **Lesson:**
 - **Тема:** "Базовые UI компоненты. Часть 2"
 - **Лекция:** https://netology.ru/profile/program/iosui-17/lessons/124693/lesson_items/636682
-- **Домашнее заданме:** https://github.com/netology-code/iosui-homeworks/tree/iosui-8/2.1
+- **Домашнее задание:** https://github.com/netology-code/iosui-homeworks/tree/iosui-8/2.1
+- **Процесс выполнения:** https://github.com/hellodubrovsky/homework-iOS-Interface/pull/3
 - **Дополнительный материал 1:** https://suragch.medium.com/frame-vs-bounds-in-ios-107990ad53ee
 - **Дополнительный материал 2:** https://developer.apple.com/documentation/quartzcore/calayer
 - **Дополнительный материал 3:** https://habr.com/ru/post/345178/
