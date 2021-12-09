@@ -40,3 +40,5 @@
 - **Дополнительный материал 2:** https://developer.apple.com/documentation/quartzcore/calayer
 - **Дополнительный материал 3:** https://habr.com/ru/post/345178/
 
+## 📚 Lesson #6.
+- **Тема:** "Верстка экранов для iOS. Auto Layout"
