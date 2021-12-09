@@ -12,7 +12,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let view = UINib(nibName: "ProfileView", bundle: .main).instantiate(withOwner: nil, options: nil).first as! UIView
-        view.frame = self.view.bounds
+        view.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]
         self.view.addSubview(view)
     }
 }
