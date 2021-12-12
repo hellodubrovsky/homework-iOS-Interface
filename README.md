@@ -42,3 +42,4 @@
 
 ## 📚 Lesson #6.
 - **Тема:** "Верстка экранов для iOS. Auto Layout"
+- **Лекция:** https://netology.ru/profile/program/iosui-17/lessons/124694/lesson_items/636686
