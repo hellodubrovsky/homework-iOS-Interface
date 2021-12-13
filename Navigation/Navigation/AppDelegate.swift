@@ -33,6 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         feedViewController.tabBarItem = itemFeedView
         profileViewController.tabBarItem = itemProfileView
         
+        // Добавление к tabBarItem'м заголовков.
+        itemFeedView.title = "Feed"
+        itemProfileView.title = "Profile"
+        
+//        itemFeedView.
+        
         // Добавление изображения к item'м tabBarController'a.
         itemFeedView.image = UIImage(named: "feedScreenImage")?.withRenderingMode(.alwaysOriginal)
         itemProfileView.image = UIImage(named: "profileScreenImage")?.withRenderingMode(.alwaysOriginal)
@@ -45,6 +51,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [feedNavigationController, profileNavigationController]
         tabBarController.selectedViewController = feedNavigationController
+        
+        tabBarController.tabBar.layer.borderWidth = 0.3
+        tabBarController.tabBar.layer.borderColor = UIColor.systemGray3.cgColor
+        tabBarController.tabBar.backgroundColor = .systemGray
+        
+        // Изменение цвета заголовка у активных и неактивных tabBarItem'в.
+        tabBarController.tabBar.tintColor = .white
+        tabBarController.tabBar.unselectedItemTintColor = .black
         
         // Делаем tabBar ключевым в нашем окне.
         window = UIWindow()
