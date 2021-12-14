@@ -15,7 +15,7 @@ class FeedViewController: UIViewController {
         
         // Cоздание кнопки "Переход к посту". Кнопку расположил на iPhone 11.
         let button = UIButton(type: .custom) as UIButton
-        button.backgroundColor = UIColor(red: 0.57, green: 0.62, blue: 0.70, alpha: 0.1)// 57, 62, 70, 1
+        button.backgroundColor = UIColor(red: 0.57, green: 0.62, blue: 0.70, alpha: 0.1)
         button.layer.cornerRadius = 25
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor(red: CGFloat(253.0 / 255.0), green: CGFloat(112.0 / 255.0), blue: CGFloat(20.0 / 255.0), alpha: CGFloat(1.0)).cgColor
