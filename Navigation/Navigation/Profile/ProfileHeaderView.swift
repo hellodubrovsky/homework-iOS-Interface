@@ -18,26 +18,7 @@ class ProfileHeaderView: UIView {
         self.addSubview(userDescription)
         self.addSubview(userImage)
         self.addSubview(buttonShowStatus)
-        
-        userName.translatesAutoresizingMaskIntoConstraints = false
-        userDescription.translatesAutoresizingMaskIntoConstraints = false
-        userImage.translatesAutoresizingMaskIntoConstraints = false
-        buttonShowStatus.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            userName.topAnchor.constraint(equalTo: self.topAnchor, constant: 120),
-            userName.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            userDescription.topAnchor.constraint(equalTo: self.topAnchor, constant: 170),
-            userDescription.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 136),
-            userImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 110),
-            userImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            userImage.heightAnchor.constraint(equalToConstant: 100),
-            userImage.widthAnchor.constraint(equalToConstant: 100),
-            buttonShowStatus.topAnchor.constraint(equalTo: self.topAnchor, constant: 226),
-            buttonShowStatus.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            buttonShowStatus.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -16),
-            buttonShowStatus.heightAnchor.constraint(equalToConstant: 50),
-        ])
+        addingLayoutConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -88,5 +69,26 @@ class ProfileHeaderView: UIView {
         return button
     }()
     
-    //private func addingLayoutConstraint
+    // MARK: - Private method
+    private func addingLayoutConstraints() {
+        userName.translatesAutoresizingMaskIntoConstraints = false
+        userDescription.translatesAutoresizingMaskIntoConstraints = false
+        userImage.translatesAutoresizingMaskIntoConstraints = false
+        buttonShowStatus.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            userName.topAnchor.constraint(equalTo: self.topAnchor, constant: 120),
+            userName.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            userDescription.topAnchor.constraint(equalTo: self.topAnchor, constant: 170),
+            userDescription.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 136),
+            userImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 110),
+            userImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            userImage.heightAnchor.constraint(equalToConstant: 100),
+            userImage.widthAnchor.constraint(equalToConstant: 100),
+            buttonShowStatus.topAnchor.constraint(equalTo: self.topAnchor, constant: 226),
+            buttonShowStatus.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            buttonShowStatus.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -16),
+            buttonShowStatus.heightAnchor.constraint(equalToConstant: 50),
+        ])
+    }
 }
