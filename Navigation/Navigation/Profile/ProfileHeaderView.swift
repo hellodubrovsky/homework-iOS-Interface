@@ -14,11 +14,30 @@ class ProfileHeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        translatesAutoresizingMaskIntoConstraints = false
-        createUserName()
-        createUserDescription()
-        createUserImage()
-        createButtonShowStatus()
+        self.addSubview(userName)
+        self.addSubview(userDescription)
+        self.addSubview(userImage)
+        self.addSubview(buttonShowStatus)
+        
+        userName.translatesAutoresizingMaskIntoConstraints = false
+        userDescription.translatesAutoresizingMaskIntoConstraints = false
+        userImage.translatesAutoresizingMaskIntoConstraints = false
+        buttonShowStatus.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            userName.topAnchor.constraint(equalTo: self.topAnchor, constant: 120),
+            userName.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            userDescription.topAnchor.constraint(equalTo: self.topAnchor, constant: 170),
+            userDescription.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 136),
+            userImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 110),
+            userImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            userImage.heightAnchor.constraint(equalToConstant: 100),
+            userImage.widthAnchor.constraint(equalToConstant: 100),
+            buttonShowStatus.topAnchor.constraint(equalTo: self.topAnchor, constant: 226),
+            buttonShowStatus.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            buttonShowStatus.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -16),
+            buttonShowStatus.heightAnchor.constraint(equalToConstant: 50),
+        ])
     }
     
     required init?(coder: NSCoder) {
@@ -28,56 +47,46 @@ class ProfileHeaderView: UIView {
     
     
     // MARK: - Private object's
+    private let userName: UILabel = {
+        let name = UILabel()
+        name.text = "Happy Robocat"
+        name.font = .boldSystemFont(ofSize: 20)
+        name.textColor = .black
+        return name
+    }()
     
-    private let userName = UILabel()
-    private let userDescription = UILabel()
-    private let userImage = UIView()
-    private let buttonShowStatus = UIButton(type: .custom) as UIButton
+    private let userDescription: UILabel = {
+        let description = UILabel()
+        description.text = "Waiting for something ..."
+        description.font = .systemFont(ofSize: 14, weight: .regular)
+        description.textColor = .gray
+        return description
+    }()
     
+    private let userImage: UIView = {
+        let image = UIView()
+        image.layer.contents = UIImage(named: "cat")?.cgImage
+        image.layer.contentsGravity = .resizeAspect
+        image.layer.masksToBounds = false
+        image.layer.borderColor = UIColor.white.cgColor
+        image.layer.borderWidth = 3
+        image.backgroundColor = .systemGreen
+        image.layer.cornerRadius = 50
+        image.clipsToBounds = true
+        return image
+    }()
     
+    let buttonShowStatus: UIButton = {
+        let button = UIButton(type: .custom) as UIButton
+        button.setTitle("Show status", for: .normal)
+        button.layer.cornerRadius = 16
+        button.backgroundColor = .systemBlue
+        button.layer.shadowOffset = CGSize(width: 4, height: 4)
+        button.layer.shadowRadius = 4
+        button.layer.shadowOpacity = 0.7
+        button.layer.shadowColor = UIColor(ciColor: .black).cgColor
+        return button
+    }()
     
-    // MARK: - Private method's
-    
-    private func createUserName() {
-        userName.text = "userName"
-        userName.frame = CGRect(x: 16, y: 100, width: 376, height: 50)
-        self.addSubview(userName)
-        print("-> [userName] - it worked.")
-    }
-    
-    private func createUserDescription() {
-        userDescription.text = "Waiting for something..."
-        userDescription.frame = CGRect(x: 16, y: 200, width: 376, height: 50)
-        self.addSubview(userDescription)
-        print("-> [userDescription] - it worked.")
-    }
-    
-    private func createUserImage() {
-        userImage.layer.contents = UIImage(named: "cat")?.cgImage
-        userImage.layer.contentsGravity = .resizeAspect
-        userImage.layer.masksToBounds = false
-        userImage.layer.borderColor = UIColor.systemYellow.cgColor
-        userImage.layer.borderWidth = 2
-        userImage.backgroundColor = .systemGreen
-        userImage.layer.cornerRadius = 50
-        userImage.clipsToBounds = true
-        userImage.frame = CGRect(x: 16, y: 300, width: 100, height: 100)
-        
-        self.addSubview(userImage)
-        print("-> [userImage] - it worked.")
-    }
-    
-    private func createButtonShowStatus() {
-        buttonShowStatus.setTitle("Show status", for: .normal)
-        buttonShowStatus.layer.cornerRadius = 16
-        buttonShowStatus.backgroundColor = .systemBlue
-        buttonShowStatus.frame = CGRect(x: 16, y: 500, width: 376, height: 50)
-        buttonShowStatus.layer.shadowOffset = CGSize(width: 4, height: 4)
-        buttonShowStatus.layer.shadowRadius = 4
-        buttonShowStatus.layer.shadowOpacity = 0.7
-        buttonShowStatus.layer.shadowColor = UIColor(ciColor: .black).cgColor
-        
-        self.addSubview(buttonShowStatus)
-        print("-> [buttonShow] - it worked.")
-    }
+    //private func addingLayoutConstraint
 }

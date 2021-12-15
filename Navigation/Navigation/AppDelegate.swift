@@ -21,17 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let feedViewController = FeedViewController()
         let profileViewController = ProfileViewController()
         
-        // Создание заголовков для контроллеров.
-        feedViewController.title = "Feed"
-        profileViewController.title = "Profile"
+        // Делаем из наших view контроллеров, новый стек navigationController.
+        let feedNavigationController = UINavigationController(rootViewController: feedViewController)
+        let profileNavigationController = UINavigationController(rootViewController: profileViewController)
         
         // Создания item'ов в tabBar.
         let itemFeedView = UITabBarItem()
         let itemProfileView = UITabBarItem()
-        
-        // Соединяем item'ы с нужными viewController'ми.
-        feedViewController.tabBarItem = itemFeedView
-        profileViewController.tabBarItem = itemProfileView
         
         // Добавление к tabBarItem'м заголовков.
         itemFeedView.title = "Feed"
@@ -41,9 +37,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         itemFeedView.image = UIImage(named: "feedScreenImage")?.withRenderingMode(.alwaysOriginal)
         itemProfileView.image = UIImage(named: "profileScreenImage")?.withRenderingMode(.alwaysOriginal)
         
-        // Делаем из наших контроллеров, новый стек.
-        let feedNavigationController = UINavigationController(rootViewController: feedViewController)
-        let profileNavigationController = UINavigationController(rootViewController: profileViewController)
+        // Соединяем item'ы с нужными viewController'ми.
+        feedNavigationController.tabBarItem = itemFeedView
+        profileNavigationController.tabBarItem = itemProfileView
+ 
+        // Возврат navigationController к реализации до iOS 13
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = UIColor(red: 0.34, green: 0.40, blue: 0.49, alpha: 0.1)
+        feedNavigationController.navigationBar.scrollEdgeAppearance = appearance
+        profileNavigationController.navigationBar.scrollEdgeAppearance = appearance
         
         // Создание tabBar и добавление в него, навигационных стеков, и по умолчаниию, выбираем экран с постами.
         let tabBarController = UITabBarController()

@@ -7,11 +7,13 @@
 
 import UIKit
 
+
 class FeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 0.34, green: 0.40, blue: 0.49, alpha: 0.1)
+        title = "Feed"
+        view.backgroundColor = UIColor(red: 0.53, green: 0.47, blue: 0.68, alpha: 0.1)
         
         // Cоздание кнопки "Переход к посту". Кнопку расположил на iPhone 11.
         let button = UIButton(type: .custom) as UIButton
