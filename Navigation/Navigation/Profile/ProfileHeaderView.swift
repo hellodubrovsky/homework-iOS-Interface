@@ -15,6 +15,7 @@ class ProfileHeaderView: UIView {
         self.addSubview(userDescription)
         self.addSubview(userImage)
         self.addSubview(buttonShowStatus)
+        self.addSubview(statusTextField)
         addingLayoutConstraints()
     }
     
@@ -67,11 +68,30 @@ class ProfileHeaderView: UIView {
         return button
     }()
     
+    private let statusTextField: UITextField = {
+        let status = UITextField()
+        status.backgroundColor = .white
+        status.font = .systemFont(ofSize: 15, weight: .regular)
+        status.textColor = .black
+        status.layer.cornerRadius = 12
+        status.layer.borderWidth = 1
+        status.layer.borderColor = UIColor(ciColor: .black).cgColor
+        status.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
+        return status
+    }()
+    
+    private var statusText: String = ""
+    
     
     
     // MARK: - Private method's
     @objc private func buttonShowStatusPressed() {
-        print("Поле статуса содержит текст: '\(userDescription.text ?? "отсутствует")'.")
+        guard statusText != "" else { return }
+        userDescription.text = statusText
+    }
+    
+    @objc func statusTextChanged(_ textField: UITextField) {
+        statusText = textField.text ?? ""
     }
     
     private func addingLayoutConstraints() {
@@ -79,6 +99,7 @@ class ProfileHeaderView: UIView {
         userDescription.translatesAutoresizingMaskIntoConstraints = false
         userImage.translatesAutoresizingMaskIntoConstraints = false
         buttonShowStatus.translatesAutoresizingMaskIntoConstraints = false
+        statusTextField.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             userName.topAnchor.constraint(equalTo: self.topAnchor, constant: 120),
@@ -89,10 +110,14 @@ class ProfileHeaderView: UIView {
             userImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             userImage.heightAnchor.constraint(equalToConstant: 100),
             userImage.widthAnchor.constraint(equalToConstant: 100),
-            buttonShowStatus.topAnchor.constraint(equalTo: self.topAnchor, constant: 226),
+            buttonShowStatus.topAnchor.constraint(equalTo: self.topAnchor, constant: 245),
             buttonShowStatus.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             buttonShowStatus.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -16),
             buttonShowStatus.heightAnchor.constraint(equalToConstant: 50),
+            statusTextField.topAnchor.constraint(equalTo: self.topAnchor, constant: 190),
+            statusTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 134),
+            statusTextField.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16),
+            statusTextField.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
 }
