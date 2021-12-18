@@ -5,9 +5,6 @@
 //  Created by Илья on 14.12.2021.
 //
 
-// MARK: 6. Перейдите в файл ProfileHeaderView и, следуя макету, добавьте необходимые UI-элементы в качестве подпредставлений и установите для них нужные параметры.
-// MARK: Ваш экран Profile должен в точности повторять макет. Уделите особое внимание отступам и шрифтам. Имя, подпись и аватарку можно выбрать по своему усмотрению :)
-
 import UIKit
 
 class ProfileHeaderView: UIView {
@@ -57,7 +54,7 @@ class ProfileHeaderView: UIView {
         return image
     }()
     
-    let buttonShowStatus: UIButton = {
+    private let buttonShowStatus: UIButton = {
         let button = UIButton(type: .custom) as UIButton
         button.setTitle("Show status", for: .normal)
         button.layer.cornerRadius = 16
@@ -66,10 +63,17 @@ class ProfileHeaderView: UIView {
         button.layer.shadowRadius = 4
         button.layer.shadowOpacity = 0.7
         button.layer.shadowColor = UIColor(ciColor: .black).cgColor
+        button.addTarget(self, action: #selector(buttonShowStatusPressed), for: .touchUpInside)
         return button
     }()
     
-    // MARK: - Private method
+    
+    
+    // MARK: - Private method's
+    @objc private func buttonShowStatusPressed() {
+        print("Поле статуса содержит текст: '\(userDescription.text ?? "отсутствует")'.")
+    }
+    
     private func addingLayoutConstraints() {
         userName.translatesAutoresizingMaskIntoConstraints = false
         userDescription.translatesAutoresizingMaskIntoConstraints = false
