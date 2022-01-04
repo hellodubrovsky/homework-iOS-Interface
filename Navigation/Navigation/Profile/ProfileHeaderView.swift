@@ -102,21 +102,21 @@ class ProfileHeaderView: UIView {
         statusTextField.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            userName.topAnchor.constraint(equalTo: self.topAnchor, constant: 120),
-            userName.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            userDescription.topAnchor.constraint(equalTo: self.topAnchor, constant: 170),
-            userDescription.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 136),
-            userImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 110),
-            userImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            userName.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
+            userName.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            userDescription.topAnchor.constraint(equalTo: userName.topAnchor, constant: 50),
+            userDescription.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: 16),
+            userImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            userImage.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             userImage.heightAnchor.constraint(equalToConstant: 100),
             userImage.widthAnchor.constraint(equalToConstant: 100),
-            buttonShowStatus.topAnchor.constraint(equalTo: self.topAnchor, constant: 245),
-            buttonShowStatus.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            buttonShowStatus.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -16),
+            buttonShowStatus.topAnchor.constraint(equalTo: statusTextField.bottomAnchor, constant: 16),
+            buttonShowStatus.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            buttonShowStatus.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,constant: -16),
             buttonShowStatus.heightAnchor.constraint(equalToConstant: 50),
-            statusTextField.topAnchor.constraint(equalTo: self.topAnchor, constant: 190),
-            statusTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 134),
-            statusTextField.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16),
+            statusTextField.topAnchor.constraint(equalTo: userDescription.topAnchor, constant: 20),
+            statusTextField.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: 16),
+            statusTextField.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
             statusTextField.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
