@@ -45,3 +45,9 @@
 - **Лекция:** https://netology.ru/profile/program/iosui-17/lessons/124694/lesson_items/636686
 - **Домашнее задание:** https://github.com/netology-code/iosui-homeworks/tree/iosui-8/2.2
 - **Процесс выполнения:** https://github.com/hellodubrovsky/homework-iOS-Interface/pulls
+
+## 📚 Lesson #7.
+- **Тема:** "UITableView, UIScrollView, datasource и delegate. Часть 1."
+- **Лекция:** https://netology.ru/profile/program/iosui-17/lessons/124696/lesson_items/636692
+- **Домашнее задание:** https://github.com/netology-code/iosui-homeworks/blob/iosui-8/2.3/2.3.part_1.md
+- **Процесс выполнения:** 
