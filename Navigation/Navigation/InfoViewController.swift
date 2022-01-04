@@ -8,21 +8,18 @@
 import UIKit
 
 class InfoViewController: UIViewController {
-    
-    //  9. На InfoViewController создайте кнопку. При нажатии на неё должен показаться UIAlertController с заданным title, message и двумя UIAlertAction.
-    //  При нажатии на UIAlertAction в консоль должно выводиться сообщение..
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .brown
+        view.backgroundColor = UIColor(red: 0.61, green: 0, blue: 0, alpha: 1)
         self.title = "Info"
         
         // Cоздание кнопки "Показать алерт". Кнопку расположил на iPhone 11.
         let buttonAlert = UIButton(type: .custom) as UIButton
-        buttonAlert.backgroundColor = .gray
-        buttonAlert.layer.borderColor = UIColor.white.cgColor
+        buttonAlert.backgroundColor = UIColor(red: 0.57, green: 0.62, blue: 0.70, alpha: 0.5)
+        buttonAlert.layer.borderColor = UIColor(red: CGFloat(253.0 / 255.0), green: CGFloat(112.0 / 255.0), blue: CGFloat(20.0 / 255.0), alpha: CGFloat(1.0)).cgColor
         buttonAlert.layer.borderWidth = 2
-        buttonAlert.layer.cornerRadius = 15
+        buttonAlert.layer.cornerRadius = 25
         buttonAlert.setTitle("Показать алерт", for: .normal)
         buttonAlert.frame = CGRect(x: 100, y: 420, width: 200, height: 50)
         buttonAlert.addTarget(self, action: #selector(buttonAlertAction), for: .touchUpInside)

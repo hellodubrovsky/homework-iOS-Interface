@@ -21,30 +21,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let feedViewController = FeedViewController()
         let profileViewController = ProfileViewController()
         
-        // Создание заголовков для контроллеров.
-        feedViewController.title = "Feed"
-        profileViewController.title = "Profile"
+        // Делаем из наших view контроллеров, новый стек navigationController.
+        let feedNavigationController = UINavigationController(rootViewController: feedViewController)
+        let profileNavigationController = UINavigationController(rootViewController: profileViewController)
         
         // Создания item'ов в tabBar.
         let itemFeedView = UITabBarItem()
         let itemProfileView = UITabBarItem()
         
-        // Соединяем item'ы с нужными viewController'ми.
-        feedViewController.tabBarItem = itemFeedView
-        profileViewController.tabBarItem = itemProfileView
+        // Добавление к tabBarItem'м заголовков.
+        itemFeedView.title = "Feed"
+        itemProfileView.title = "Profile"
         
         // Добавление изображения к item'м tabBarController'a.
         itemFeedView.image = UIImage(named: "feedScreenImage")?.withRenderingMode(.alwaysOriginal)
         itemProfileView.image = UIImage(named: "profileScreenImage")?.withRenderingMode(.alwaysOriginal)
         
-        // Делаем из наших контроллеров, новый стек.
-        let feedNavigationController = UINavigationController(rootViewController: feedViewController)
-        let profileNavigationController = UINavigationController(rootViewController: profileViewController)
+        // Соединяем item'ы с нужными viewController'ми.
+        feedNavigationController.tabBarItem = itemFeedView
+        profileNavigationController.tabBarItem = itemProfileView
+ 
+        // Возврат navigationController к реализации до iOS 13
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = UIColor(red: 0.34, green: 0.40, blue: 0.49, alpha: 0.1)
+        feedNavigationController.navigationBar.scrollEdgeAppearance = appearance
+        profileNavigationController.navigationBar.scrollEdgeAppearance = appearance
         
         // Создание tabBar и добавление в него, навигационных стеков, и по умолчаниию, выбираем экран с постами.
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [feedNavigationController, profileNavigationController]
         tabBarController.selectedViewController = feedNavigationController
+        
+        // Изменяем дизайн tabBar.
+        tabBarController.tabBar.layer.borderWidth = 0.3
+        tabBarController.tabBar.layer.borderColor = UIColor(red: CGFloat(253.0 / 255.0), green: CGFloat(112.0 / 255.0), blue: CGFloat(20.0 / 255.0), alpha: CGFloat(1.0)).cgColor
+        tabBarController.tabBar.backgroundColor = UIColor(red: CGFloat(238.0 / 255.0), green: CGFloat(238.0 / 255.0), blue: CGFloat(238.0 / 255.0), alpha: CGFloat(1.0))
+        
+        // Изменение цвета заголовка у активных и неактивных tabBarItem'в.
+        tabBarController.tabBar.tintColor = UIColor(red: CGFloat(253.0 / 255.0), green: CGFloat(112.0 / 255.0), blue: CGFloat(20.0 / 255.0), alpha: CGFloat(1.0))
+        tabBarController.tabBar.unselectedItemTintColor = .black
         
         // Делаем tabBar ключевым в нашем окне.
         window = UIWindow()
