@@ -50,4 +50,4 @@
 - **Тема:** "UITableView, UIScrollView, datasource и delegate. Часть 1."
 - **Лекция:** https://netology.ru/profile/program/iosui-17/lessons/124696/lesson_items/636692
 - **Домашнее задание:** https://github.com/netology-code/iosui-homeworks/blob/iosui-8/2.3/2.3.part_1.md
-- **Процесс выполнения:** 
+- **Процесс выполнения:** https://github.com/hellodubrovsky/homework-iOS-Interface/pull/5
