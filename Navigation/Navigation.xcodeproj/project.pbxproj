@@ -15,6 +15,7 @@
 		F49DC38727515434004F9DCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F49DC38527515434004F9DCE /* LaunchScreen.storyboard */; };
 		F4F074542753E0360034579A /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F074532753E0360034579A /* PostViewController.swift */; };
 		F4F0745627541A310034579A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0745527541A310034579A /* InfoViewController.swift */; };
+		F4F6760027873FAB00465155 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F675FF27873FAB00465155 /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		F49DC38827515434004F9DCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4F074532753E0360034579A /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		F4F0745527541A310034579A /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		F4F675FF27873FAB00465155 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 			children = (
 				F4219565276869AE00487AE7 /* ProfileHeaderView.swift */,
 				F48F371C27522200008C6565 /* ProfileViewController.swift */,
+				F4F675FF27873FAB00465155 /* LogInViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 				F48F371D27522200008C6565 /* ProfileViewController.swift in Sources */,
 				F4219566276869AE00487AE7 /* ProfileHeaderView.swift in Sources */,
 				F48F37212752290E008C6565 /* FeedViewController.swift in Sources */,
+				F4F6760027873FAB00465155 /* LogInViewController.swift in Sources */,
 				F49DC37B27515432004F9DCE /* AppDelegate.swift in Sources */,
 				F4F0745627541A310034579A /* InfoViewController.swift in Sources */,
 				F4F074542753E0360034579A /* PostViewController.swift in Sources */,

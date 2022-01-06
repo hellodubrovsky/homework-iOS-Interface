@@ -30,7 +30,8 @@ class ProfileHeaderView: UIView {
         let name = UILabel()
         name.text = "Happy Robocat"
         name.font = .boldSystemFont(ofSize: 20)
-        name.textColor = .black
+        name.textColor = .white
+        name.translatesAutoresizingMaskIntoConstraints = false
         return name
     }()
     
@@ -38,7 +39,8 @@ class ProfileHeaderView: UIView {
         let description = UILabel()
         description.text = "Waiting for something ..."
         description.font = .systemFont(ofSize: 14, weight: .regular)
-        description.textColor = .gray
+        description.textColor = .white
+        description.translatesAutoresizingMaskIntoConstraints = false
         return description
     }()
     
@@ -52,6 +54,7 @@ class ProfileHeaderView: UIView {
         image.backgroundColor = .systemGreen
         image.layer.cornerRadius = 50
         image.clipsToBounds = true
+        image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
@@ -65,6 +68,7 @@ class ProfileHeaderView: UIView {
         button.layer.shadowOpacity = 0.7
         button.layer.shadowColor = UIColor(ciColor: .black).cgColor
         button.addTarget(self, action: #selector(buttonShowStatusPressed), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -77,6 +81,9 @@ class ProfileHeaderView: UIView {
         status.layer.borderWidth = 1
         status.layer.borderColor = UIColor(ciColor: .black).cgColor
         status.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
+        status.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 8, height: 20))
+        status.leftViewMode = .always
+        status.translatesAutoresizingMaskIntoConstraints = false
         return status
     }()
     
@@ -95,17 +102,12 @@ class ProfileHeaderView: UIView {
     }
     
     private func addingLayoutConstraints() {
-        userName.translatesAutoresizingMaskIntoConstraints = false
-        userDescription.translatesAutoresizingMaskIntoConstraints = false
-        userImage.translatesAutoresizingMaskIntoConstraints = false
-        buttonShowStatus.translatesAutoresizingMaskIntoConstraints = false
-        statusTextField.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             userName.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
             userName.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
             userDescription.topAnchor.constraint(equalTo: userName.topAnchor, constant: 50),
             userDescription.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: 16),
+            userDescription.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
             userImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             userImage.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             userImage.heightAnchor.constraint(equalToConstant: 100),
@@ -114,8 +116,8 @@ class ProfileHeaderView: UIView {
             buttonShowStatus.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             buttonShowStatus.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,constant: -16),
             buttonShowStatus.heightAnchor.constraint(equalToConstant: 50),
-            statusTextField.topAnchor.constraint(equalTo: userDescription.topAnchor, constant: 20),
-            statusTextField.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: 16),
+            statusTextField.topAnchor.constraint(equalTo: userDescription.bottomAnchor, constant: 8),
+            statusTextField.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: 14),
             statusTextField.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16),
             statusTextField.heightAnchor.constraint(equalToConstant: 40)
         ])

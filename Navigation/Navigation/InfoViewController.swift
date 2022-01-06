@@ -12,6 +12,7 @@ class InfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0.61, green: 0, blue: 0, alpha: 1)
+        navigationController?.navigationBar.tintColor = . white
         self.title = "Info"
         view.addSubview(buttonShowAlert)
         addingLayoutConstraints()

@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Перечисление дочерних контроллеров.
         let feedViewController = FeedViewController()
-        let profileViewController = ProfileViewController()
+        let profileViewController = LogInViewController()
         
         // Делаем из наших view контроллеров, новый стек navigationController.
         let feedNavigationController = UINavigationController(rootViewController: feedViewController)
@@ -35,8 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         itemProfileView.title = "Profile"
         
         // Добавление изображения к item'м tabBarController'a.
-        itemFeedView.image = UIImage(named: "feedScreenImage")?.withRenderingMode(.alwaysOriginal)
-        itemProfileView.image = UIImage(named: "profileScreenImage")?.withRenderingMode(.alwaysOriginal)
+        itemFeedView.image = UIImage(systemName: "house.fill")
+        itemProfileView.image = UIImage(systemName: "person.fill")
         
         // Соединяем item'ы с нужными viewController'ми.
         feedNavigationController.tabBarItem = itemFeedView
@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  
         // Возврат navigationController к реализации до iOS 13
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = UIColor(red: 0.34, green: 0.40, blue: 0.49, alpha: 0.1)
+        appearance.backgroundColor = UIColor.init(named: "colorBaseVK")
         feedNavigationController.navigationBar.scrollEdgeAppearance = appearance
         profileNavigationController.navigationBar.scrollEdgeAppearance = appearance
         
@@ -54,12 +54,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabBarController.selectedViewController = feedNavigationController
         
         // Изменяем дизайн tabBar.
-        tabBarController.tabBar.layer.borderWidth = 0.3
-        tabBarController.tabBar.layer.borderColor = UIColor(red: CGFloat(253.0 / 255.0), green: CGFloat(112.0 / 255.0), blue: CGFloat(20.0 / 255.0), alpha: CGFloat(1.0)).cgColor
+        //tabBarController.tabBar.layer.borderWidth = 0.3
+        //tabBarController.tabBar.layer.borderColor = UIColor(red: CGFloat(253.0 / 255.0), green: CGFloat(112.0 / 255.0), blue: CGFloat(20.0 / 255.0), alpha: CGFloat(1.0)).cgColor
         tabBarController.tabBar.backgroundColor = UIColor(red: CGFloat(238.0 / 255.0), green: CGFloat(238.0 / 255.0), blue: CGFloat(238.0 / 255.0), alpha: CGFloat(1.0))
         
         // Изменение цвета заголовка у активных и неактивных tabBarItem'в.
-        tabBarController.tabBar.tintColor = UIColor(red: CGFloat(253.0 / 255.0), green: CGFloat(112.0 / 255.0), blue: CGFloat(20.0 / 255.0), alpha: CGFloat(1.0))
+        tabBarController.tabBar.tintColor = UIColor.init(named: "colorBaseVK")
         tabBarController.tabBar.unselectedItemTintColor = .black
         
         // Делаем tabBar ключевым в нашем окне.
