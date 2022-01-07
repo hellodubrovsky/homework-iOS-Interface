@@ -44,7 +44,7 @@
 - **Тема:** "Верстка экранов для iOS. Auto Layout"
 - **Лекция:** https://netology.ru/profile/program/iosui-17/lessons/124694/lesson_items/636686
 - **Домашнее задание:** https://github.com/netology-code/iosui-homeworks/tree/iosui-8/2.2
-- **Процесс выполнения:** https://github.com/hellodubrovsky/homework-iOS-Interface/pulls
+- **Процесс выполнения:** https://github.com/hellodubrovsky/homework-iOS-Interface/pull/4
 
 ## 📚 Lesson #7.
 - **Тема:** "UITableView, UIScrollView, datasource и delegate. Часть 1."
@@ -54,6 +54,6 @@
 
 ## 📚 Lesson #8.
 - **Тема:** "UITableView, UIScrollView, datasource и delegate. Часть 2."
-- **Лекция:** 
-- **Домашнее задание:** 
-- **Процесс выполнения:** 
+- **Лекция:** https://netology.ru/profile/program/iosui-17/lessons/124697/lesson_items/636695
+- **Домашнее задание:** https://github.com/netology-code/iosui-homeworks/blob/iosui-8/2.3/2.3.part_2.md
+- **Процесс выполнения:** https://github.com/hellodubrovsky/homework-iOS-Interface/pull/6
