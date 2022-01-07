@@ -57,3 +57,8 @@
 - **Лекция:** https://netology.ru/profile/program/iosui-17/lessons/124697/lesson_items/636695
 - **Домашнее задание:** https://github.com/netology-code/iosui-homeworks/blob/iosui-8/2.3/2.3.part_2.md
 - **Процесс выполнения:** https://github.com/hellodubrovsky/homework-iOS-Interface/pull/6
+- **Дополнительный материал 1:** https://developer.apple.com/documentation/uikit/uitableviewdelegate
+- **Дополнительный материал 2:** https://clck.ru/agwf6
+- **Дополнительный материал 3:** https://www.raywenderlich.com/8549-self-sizing-table-view-cells
+- **Дополнительный материал 4:** https://clck.ru/agwes
+- **Дополнительный материал 5:** https://clck.ru/agwek
