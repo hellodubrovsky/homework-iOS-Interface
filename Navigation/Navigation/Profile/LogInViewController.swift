@@ -24,8 +24,10 @@ class LogInViewController: UIViewController {
         inputFieldStackView.addArrangedSubview(passwordInputTextField)
         
         setupTapGesture()
-        addLayoutConstraints()
+        activatingConstraints()
     }
+    
+    
     
     
     
@@ -86,8 +88,8 @@ class LogInViewController: UIViewController {
     private lazy var inputFieldStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.distribution = .equalSpacing
-        stack.alignment = .center
+        stack.distribution = .fillEqually
+        stack.alignment = .fill
         stack.layer.cornerRadius = 10
         stack.layer.borderWidth = 0.5
         stack.layer.borderColor = UIColor.lightGray.cgColor
@@ -110,9 +112,13 @@ class LogInViewController: UIViewController {
 
 
 
+
+
 // MARK: - Keyboard
 
 extension LogInViewController {
+    
+    // MARK: Observers keyboard.
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -120,34 +126,49 @@ extension LogInViewController {
         notificationCenter.addObserver(self, selector: #selector(self.willShowKeyboard(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(self.willHideKeyboard(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         let notificationCenter = NotificationCenter.default
         notificationCenter.removeObserver(self)
     }
     
-    @objc func willShowKeyboard(_ notification: NSNotification) {
-        guard let value = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-        let keyboardFrame = value.cgRectValue
-        let bottomSpace = contentView.frame.height - logInButton.frame.origin.y
-        let difference = keyboardFrame.height - bottomSpace
-        scrollView.transform = CGAffineTransform(translationX: 0, y: -difference - 16)
+    
+    
+    // MARK: Show/Hide keyboard method's.
+    /* https://stackoverflow.com/questions/26689232/scrollview-and-keyboard-in-swift */
+    
+    @objc fileprivate func willShowKeyboard(_ notification: NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        var contentInset: UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height + 20
+        scrollView.contentInset = contentInset
+    }
+
+    @objc fileprivate func willHideKeyboard(_ notification: NSNotification) {
+        let contentInset: UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
     }
     
-    @objc fileprivate func willHideKeyboard(_ notification: NSNotification) {
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {self.scrollView.transform = .identity }, completion: nil)
-    }
+    
+    
+    // MARK: Hiding the keyboard by tap.
+    /* https://developer.apple.com/documentation/uikit/uiview/1622507-layoutifneeded */
     
     fileprivate func setupTapGesture() {
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapDismiss)))
     }
-    
+
     @objc fileprivate func handleTapDismiss() {
         view.endEditing(true)
-        viewWillAppear(true)    // Нет уверености, в использовании такой перезагрузки view.
+        view.layoutIfNeeded()
     }
 }
+
+
+
 
 
 // MARK: - Private method's
@@ -159,12 +180,12 @@ extension LogInViewController {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    private func addLayoutConstraints() {
+    private func activatingConstraints() {
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
@@ -174,21 +195,14 @@ extension LogInViewController {
             contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
             
             iconLogoVK.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 120.0),
-            iconLogoVK.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            iconLogoVK.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             iconLogoVK.widthAnchor.constraint(equalToConstant: 100),
             iconLogoVK.heightAnchor.constraint(equalToConstant: 100),
             
             inputFieldStackView.topAnchor.constraint(equalTo: iconLogoVK.bottomAnchor, constant: 120),
             inputFieldStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.0),
             inputFieldStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.0),
-            
-            loginInputTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.0),
-            loginInputTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.0),
-            loginInputTextField.heightAnchor.constraint(equalToConstant: 50),
-            
-            passwordInputTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.0),
-            passwordInputTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.0),
-            passwordInputTextField.heightAnchor.constraint(equalToConstant: 50),
+            inputFieldStackView.heightAnchor.constraint(equalToConstant: 100),
             
             logInButton.topAnchor.constraint(equalTo: inputFieldStackView.bottomAnchor, constant: 16.0),
             logInButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.0),
