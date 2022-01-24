@@ -62,3 +62,13 @@
 - **Дополнительный материал 3:** https://www.raywenderlich.com/8549-self-sizing-table-view-cells
 - **Дополнительный материал 4:** https://clck.ru/agwes
 - **Дополнительный материал 5:** https://clck.ru/agwek
+
+## 📚 Lesson #9.
+- **Тема:** "CollectionView"
+- **Лекция:** hhttps://netology.ru/profile/program/iosui-17/lessons/124698/lesson_items/636701
+- **Домашнее задание:** https://github.com/netology-code/iosui-homeworks/tree/iosui-8/2.5
+- **Процесс выполнения:** https://github.com/hellodubrovsky/homework-iOS-Interface/pull/7
+- **Дополнительный материал 1:** https://developer.apple.com/documentation/uikit/uicollectionview
+- **Дополнительный материал 2:** https://developer.apple.com/documentation/uikit/uicollectionviewflowlayout
+- **Дополнительный материал 3:** https://www.raywenderlich.com/18895088-uicollectionview-tutorial-getting-started
+- **Дополнительный материал 4:** https://habr.com/ru/post/445708/
