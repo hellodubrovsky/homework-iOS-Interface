@@ -28,7 +28,7 @@ class ProfileHeaderView: UIView {
     // MARK: - Private object's
     private let userName: UILabel = {
         let name = UILabel()
-        name.text = "Happy Robocat"
+        name.text = "Robocat"
         name.font = .boldSystemFont(ofSize: 20)
         name.textColor = .white
         name.translatesAutoresizingMaskIntoConstraints = false

@@ -14,32 +14,24 @@ class ProfileViewController: UIViewController {
         view.addSubview(tableView)
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.separatorStyle = .none
-        tableView.tableFooterView = UIView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.backgroundColor = .yellow
         addLayoutConstraint()
+        setupTapGesture()
     }
     
     
-    
-    // MARK: - Private object's
+    // MARK: Private object's
     private var profileView: ProfileHeaderView = {
         let view = ProfileHeaderView()
         view.backgroundColor = .systemGray
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
     private lazy var tableView: UITableView = {
-        let table = UITableView()
+        let table = UITableView.init(frame: CGRect.zero, style: .grouped)
         table.backgroundColor = .white
         table.translatesAutoresizingMaskIntoConstraints = false
-        table.tableHeaderView = profileView
-        
-        //table.estimatedRowHeight = profileView.bounds.height
-        //table.estimatedSectionHeaderHeight = profileView.bounds.height
-        
         return table
     }()
     
@@ -47,21 +39,17 @@ class ProfileViewController: UIViewController {
     fileprivate lazy var cellReuseIdentifier: String = "uniqueCellForUserPosts"
     
     
-    // MARK: - Private method's
+    // MARK: Private method's
     private func addLayoutConstraint() {
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
-            profileView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            profileView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            profileView.topAnchor.constraint(equalTo: tableView.topAnchor),
-            profileView.heightAnchor.constraint(equalToConstant: 220),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
 }
+
 
 
 
@@ -70,12 +58,12 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
-    // Данный метод, должен понимать, сколько всего ячеек будет
+    // Данный метод, должен понимать, сколько всего ячеек будет.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
     
-    // Данный метод, отвечает за заполненение ячеек данными
+    // Данный метод, отвечает за заполненение ячеек данными.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: PostTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? PostTableViewCell else { fatalError() }
         let data = posts[indexPath.row]
@@ -83,45 +71,34 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
-    
-    /*
-    func headerView(forSection section: Int) -> UITableViewHeaderFooterView? {
-        var viewE = tableView.dequeueReusableHeaderFooterView(withIdentifier: "sectionHeader") as! MyCustomHeader
-                viewE.view = profileView
-                return viewE
-    }
-    
+    // Добавляем profileView в качестве header'a.
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var viewE = tableView.dequeueReusableHeaderFooterView(withIdentifier: "sectionHeader") as! MyCustomHeader
-        viewE.view = profileView
-        return viewE
+        return profileView
+       
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-
-        var myCustomView = UIImageView()
-        var myImage: UIImage = UIImage(named: "iconExample")!
-        myCustomView.image = myImage
-
-        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
-        header.addSubview(myCustomView)
-        return header
+    // Добавляем размер header'у.
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 220
     }
+}
+
+
+
+
+
+// MARK: - Keyboard
+
+extension ProfileViewController {
+
+    // Hiding the keyboard by tap.
+    /* https://developer.apple.com/documentation/uikit/uiview/1622507-layoutifneeded */
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UITableViewHeaderFooterView()
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-        headerView.backgroundView = {
-            let view = profileView
-            return view
-        }()
-
-        NSLayoutConstraint.activate([
-            headerView.heightAnchor.constraint(equalToConstant: 220),
-        ])
-
-        return headerView
+    fileprivate func setupTapGesture() {
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapDismiss)))
     }
-    */
+
+    @objc fileprivate func handleTapDismiss() {
+        view.endEditing(true)
+    }
 }

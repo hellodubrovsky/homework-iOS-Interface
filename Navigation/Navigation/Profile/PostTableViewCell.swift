@@ -40,7 +40,6 @@ class PostTableViewCell: UITableViewCell {
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.backgroundColor = .black
-        imageView.image = UIImage(named: "iconExample")!
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
