@@ -10,11 +10,13 @@ import UIKit
 class ProfileViewController: UIViewController {
     
     let profileView = ProfileHeaderView()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
         title = "Profile"
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .systemGray
+        navigationController?.navigationBar.tintColor = . white
         view.addSubview(profileView)
         view.addSubview(newButton)
         addingLayoutConstraints()
