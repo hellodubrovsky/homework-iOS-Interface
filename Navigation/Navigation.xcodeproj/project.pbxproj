@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F4219566276869AE00487AE7 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4219565276869AE00487AE7 /* ProfileHeaderView.swift */; };
-		F48F371D27522200008C6565 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F371C27522200008C6565 /* ProfileViewController.swift */; };
+		F4219566276869AE00487AE7 /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4219565276869AE00487AE7 /* ProfileTableHeaderView.swift */; };
+		F43EC242278D482700B94BC1 /* PublicationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43EC241278D482700B94BC1 /* PublicationModel.swift */; };
+		F467234C278BF63800B78225 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F467234B278BF63800B78225 /* PostTableViewCell.swift */; };
+		F48F371D27522200008C6565 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F371C27522200008C6565 /* ProfileTableViewController.swift */; };
 		F48F37212752290E008C6565 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F37202752290E008C6565 /* FeedViewController.swift */; };
 		F49DC37B27515432004F9DCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49DC37A27515432004F9DCE /* AppDelegate.swift */; };
 		F49DC38427515434004F9DCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49DC38327515434004F9DCE /* Assets.xcassets */; };
@@ -19,8 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F4219565276869AE00487AE7 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
-		F48F371C27522200008C6565 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F4219565276869AE00487AE7 /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
+		F43EC241278D482700B94BC1 /* PublicationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicationModel.swift; sourceTree = "<group>"; };
+		F467234B278BF63800B78225 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		F48F371C27522200008C6565 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		F48F37202752290E008C6565 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		F49DC37727515432004F9DCE /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49DC37A27515432004F9DCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,9 +50,11 @@
 		F4219562276868A400487AE7 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				F4219565276869AE00487AE7 /* ProfileHeaderView.swift */,
-				F48F371C27522200008C6565 /* ProfileViewController.swift */,
 				F4F675FF27873FAB00465155 /* LogInViewController.swift */,
+				F4219565276869AE00487AE7 /* ProfileTableHeaderView.swift */,
+				F48F371C27522200008C6565 /* ProfileTableViewController.swift */,
+				F467234B278BF63800B78225 /* PostTableViewCell.swift */,
+				F43EC241278D482700B94BC1 /* PublicationModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -154,9 +160,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F48F371D27522200008C6565 /* ProfileViewController.swift in Sources */,
-				F4219566276869AE00487AE7 /* ProfileHeaderView.swift in Sources */,
+				F48F371D27522200008C6565 /* ProfileTableViewController.swift in Sources */,
+				F43EC242278D482700B94BC1 /* PublicationModel.swift in Sources */,
+				F4219566276869AE00487AE7 /* ProfileTableHeaderView.swift in Sources */,
 				F48F37212752290E008C6565 /* FeedViewController.swift in Sources */,
+				F467234C278BF63800B78225 /* PostTableViewCell.swift in Sources */,
 				F4F6760027873FAB00465155 /* LogInViewController.swift in Sources */,
 				F49DC37B27515432004F9DCE /* AppDelegate.swift in Sources */,
 				F4F0745627541A310034579A /* InfoViewController.swift in Sources */,
