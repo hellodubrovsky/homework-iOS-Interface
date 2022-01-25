@@ -60,7 +60,7 @@ class ProfileHeaderView: UIView {
     
     private let buttonShowStatus: UIButton = {
         let button = UIButton(type: .custom) as UIButton
-        button.setTitle("Show status", for: .normal)
+        button.setTitle("Set status", for: .normal)
         button.layer.cornerRadius = 16
         button.backgroundColor = .systemBlue
         button.layer.shadowOffset = CGSize(width: 4, height: 4)
