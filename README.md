@@ -65,7 +65,7 @@
 
 ## 📚 Lesson #9.
 - **Тема:** "CollectionView"
-- **Лекция:** hhttps://netology.ru/profile/program/iosui-17/lessons/124698/lesson_items/636701
+- **Лекция:** https://netology.ru/profile/program/iosui-17/lessons/124698/lesson_items/636701
 - **Домашнее задание:** https://github.com/netology-code/iosui-homeworks/tree/iosui-8/2.5
 - **Процесс выполнения:** https://github.com/hellodubrovsky/homework-iOS-Interface/pull/7
 - **Дополнительный материал 1:** https://developer.apple.com/documentation/uikit/uicollectionview
