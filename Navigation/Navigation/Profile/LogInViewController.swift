@@ -29,10 +29,8 @@ class LogInViewController: UIViewController {
     
     
     
-    
-    
-    // MARK: - Private object's
-    
+    // MARK: Private object's
+
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = true

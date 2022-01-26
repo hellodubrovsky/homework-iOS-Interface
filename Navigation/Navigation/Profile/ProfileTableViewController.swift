@@ -17,14 +17,16 @@ class ProfileViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         addLayoutConstraint()
-        //setupTapGesture()
     }
     
-    // TODO: Посмотреть, есть ли другие варианты!
     // Реализовано для того, чтобы при возврате из photosViewController'а скрывался navigationBar.
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
     }
+    
+    
+    
+    // MARK: Private object's
     
     // ID для секциий.
     private enum cellReuseIdentifiers {
@@ -32,7 +34,6 @@ class ProfileViewController: UIViewController {
         static var posts: String = "uniqueCellForUserPosts"
     }
     
-    // MARK: Private object's
     private var profileView: ProfileHeaderView = {
         let view = ProfileHeaderView()
         view.backgroundColor = .systemGray2
@@ -48,7 +49,10 @@ class ProfileViewController: UIViewController {
         return table
     }()
     
+    
+    
     // MARK: Private method's
+    
     private func addLayoutConstraint() {
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -112,23 +116,3 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(vc, animated: true)
     }
 }
-
-
-
-
-
-// MARK: - Keyboard
-
-//extension ProfileViewController {
-//
-//    // Hiding the keyboard by tap.
-//    /* https://developer.apple.com/documentation/uikit/uiview/1622507-layoutifneeded */
-//
-//    fileprivate func setupTapGesture() {
-//        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapDismiss)))
-//    }
-//
-//    @objc fileprivate func handleTapDismiss() {
-//        view.endEditing(true)
-//    }
-//}

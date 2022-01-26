@@ -25,7 +25,8 @@ class ProfileHeaderView: UIView {
     
     
     
-    // MARK: - Private object's
+    // MARK: Private object's
+    
     private let userName: UILabel = {
         let name = UILabel()
         name.text = "Robocat"
@@ -74,6 +75,7 @@ class ProfileHeaderView: UIView {
     
     private let statusTextField: UITextField = {
         let status = UITextField()
+        status.attributedPlaceholder =  NSAttributedString(string: "Set your status..", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
         status.backgroundColor = .white
         status.font = .systemFont(ofSize: 15, weight: .regular)
         status.textColor = .black
@@ -91,7 +93,8 @@ class ProfileHeaderView: UIView {
     
     
     
-    // MARK: - Private method's
+    // MARK: Private method's
+    
     @objc private func buttonShowStatusPressed() {
         guard statusText != "" else { return }
         userDescription.text = statusText
