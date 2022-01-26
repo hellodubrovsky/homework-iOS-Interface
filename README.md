@@ -75,6 +75,6 @@
 
 ## 📚 Lesson #10.
 - **Тема:** "Жесты и анимация"
-- **Лекция:** 
-- **Домашнее задание:** 
-- **Процесс выполнения:** 
+- **Лекция:** https://netology.ru/profile/program/iosui-17/lessons/124699/lesson_items/636705
+- **Домашнее задание:** https://github.com/netology-code/iosui-homeworks/tree/iosui-8/2.6
+- **Процесс выполнения:** https://github.com/hellodubrovsky/homework-iOS-Interface/pull/8
