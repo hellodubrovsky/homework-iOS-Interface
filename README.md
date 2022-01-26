@@ -78,3 +78,5 @@
 - **Лекция:** https://netology.ru/profile/program/iosui-17/lessons/124699/lesson_items/636705
 - **Домашнее задание:** https://github.com/netology-code/iosui-homeworks/tree/iosui-8/2.6
 - **Процесс выполнения:** https://github.com/hellodubrovsky/homework-iOS-Interface/pull/8
+- **Дополнительный материал 1:** https://www.raywenderlich.com/books/ios-animations-by-tutorials/v6.0
+- **Дополнительный материал 2:** https://habr.com/ru/company/redmadrobot/blog/305596/
