@@ -17,11 +17,26 @@ class ProfileViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         addLayoutConstraint()
+        createGestureReconzerForImageUser()
     }
     
     // Реализовано для того, чтобы при возврате из photosViewController'а скрывался navigationBar.
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
+    }
+    
+    
+    
+    // MARK: Gesture recognzer for userImage.
+    
+    func createGestureReconzerForImageUser() {
+        let gesture = UITapGestureRecognizer()
+        gesture.addTarget(self, action: #selector(clickToAvatar))
+        profileView.userImage.addGestureRecognizer(gesture)
+    }
+    
+    @objc func clickToAvatar(_ gesture: UITapGestureRecognizer) {
+        print("Clicking on the avatar worked.")
     }
     
     
