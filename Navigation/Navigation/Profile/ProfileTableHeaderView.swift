@@ -16,6 +16,7 @@ class ProfileHeaderView: UIView {
         self.addSubview(userImage)
         self.addSubview(buttonShowStatus)
         self.addSubview(statusTextField)
+        createGestureReconzerForImageUser()
         addingLayoutConstraints()
     }
     
@@ -24,6 +25,20 @@ class ProfileHeaderView: UIView {
     }
     
     
+    
+    // MARK: Gesture recognzer for userImage.
+    
+    func createGestureReconzerForImageUser() {
+        let gesture = UITapGestureRecognizer()
+        gesture.addTarget(self, action: #selector(clickToAvatar))
+        self.userImage.addGestureRecognizer(gesture)
+    }
+    
+    @objc func clickToAvatar(_ gesture: UITapGestureRecognizer) {
+        print("Clicking on the avatar worked.")
+    }
+    
+
     
     // MARK: Private object's
     
