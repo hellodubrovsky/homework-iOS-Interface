@@ -80,3 +80,7 @@
 - **Процесс выполнения:** https://github.com/hellodubrovsky/homework-iOS-Interface/pull/8
 - **Дополнительный материал 1:** https://www.raywenderlich.com/books/ios-animations-by-tutorials/v6.0
 - **Дополнительный материал 2:** https://habr.com/ru/company/redmadrobot/blog/305596/
+
+## 📚 Course project.
+- **Задание:** https://github.com/netology-code/iosui-diplom/blob/main/README.md
+- **Процесс выполнения:** https://github.com/hellodubrovsky/homework-iOS-Interface/pull/9
