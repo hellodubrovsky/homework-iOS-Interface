@@ -34,6 +34,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         itemHabitsView.title = "Привычки"
         itemInfoView.title = "Информация"
         
+        // Возврат navigationController к реализации до iOS 13
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .white
+        habitsNavigationController.navigationBar.scrollEdgeAppearance = appearance
+        infoNavigationController.navigationBar.scrollEdgeAppearance = appearance
+        
         // Присваиваем tabBarItem'м соответсующие контроллеры
         habitsNavigationController.tabBarItem = itemHabitsView
         infoNavigationController.tabBarItem = itemInfoView
