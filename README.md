@@ -70,7 +70,7 @@
 - **Процесс выполнения:** https://github.com/hellodubrovsky/homework-iOS-Interface/pull/7
 - **Дополнительный материал 1:** https://developer.apple.com/documentation/uikit/uicollectionview
 - **Дополнительный материал 2:** https://developer.apple.com/documentation/uikit/uicollectionviewflowlayout
-- **Дополнительный материал 3:** https://www.raywenderlich.com/18895088-uicollectionview-tutorial-getting-started
+- **Дополнительный материал 3:** https://clck.ru/asejh
 - **Дополнительный материал 4:** https://habr.com/ru/post/445708/
 
 ## 📚 Lesson #10.
