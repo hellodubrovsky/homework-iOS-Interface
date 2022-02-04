@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Возврат navigationController к реализации до iOS 13
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .white
+        appearance.backgroundColor = UIColor(named: "whiteColorApp")
         habitsNavigationController.navigationBar.scrollEdgeAppearance = appearance
         infoNavigationController.navigationBar.scrollEdgeAppearance = appearance
         
@@ -52,7 +52,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Изменение цвета tabBarController'а
         tabBarController.tabBar.tintColor = .black
         tabBarController.tabBar.unselectedItemTintColor = .gray
-        tabBarController.tabBar.backgroundColor = .white
+        tabBarController.tabBar.backgroundColor = UIColor(named: "whiteColorApp")
+        tabBarController.tabBar.layer.borderWidth = 1
+        tabBarController.tabBar.layer.borderColor = UIColor(red: 0.235, green: 0.235, blue: 0.263, alpha: 0.29).cgColor
         
         window = UIWindow()
         window?.rootViewController = tabBarController
