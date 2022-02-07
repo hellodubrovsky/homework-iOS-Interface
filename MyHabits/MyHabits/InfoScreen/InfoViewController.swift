@@ -39,7 +39,7 @@ final class InfoViewController: UIViewController {
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            
+
             informationTextView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             informationTextView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             informationTextView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
