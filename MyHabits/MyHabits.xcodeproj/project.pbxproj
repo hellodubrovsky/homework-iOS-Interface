@@ -16,6 +16,7 @@
 		F4A70A9027B124F6003E34FF /* ProgressCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A70A8F27B124F6003E34FF /* ProgressCollectionViewCell.swift */; };
 		F4A70A9427B125A8003E34FF /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A70A9327B125A8003E34FF /* ReusableProtocol.swift */; };
 		F4A70A9627B12A04003E34FF /* TestDataHabitsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A70A9527B12A04003E34FF /* TestDataHabitsCell.swift */; };
+		F4A70A9827B1537B003E34FF /* HabitDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A70A9727B1537B003E34FF /* HabitDetailsViewController.swift */; };
 		F4B0496127AA7FF700CB5AB7 /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0496027AA7FF700CB5AB7 /* HabitsViewController.swift */; };
 		F4B0496327AA800500CB5AB7 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0496227AA800500CB5AB7 /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		F4A70A8F27B124F6003E34FF /* ProgressCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCollectionViewCell.swift; sourceTree = "<group>"; };
 		F4A70A9327B125A8003E34FF /* ReusableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
 		F4A70A9527B12A04003E34FF /* TestDataHabitsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataHabitsCell.swift; sourceTree = "<group>"; };
+		F4A70A9727B1537B003E34FF /* HabitDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsViewController.swift; sourceTree = "<group>"; };
 		F4B0496027AA7FF700CB5AB7 /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
 		F4B0496227AA800500CB5AB7 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,6 +54,7 @@
 			children = (
 				F4B0496027AA7FF700CB5AB7 /* HabitsViewController.swift */,
 				F4A70A9127B124FF003E34FF /* CollectionCell */,
+				F4A70A9927B15387003E34FF /* HabitDetail */,
 				F4A70A9227B12519003E34FF /* Data */,
 			);
 			path = HabitsScreen;
@@ -112,6 +115,14 @@
 				F4A70A9527B12A04003E34FF /* TestDataHabitsCell.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		F4A70A9927B15387003E34FF /* HabitDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F4A70A9727B1537B003E34FF /* HabitDetailsViewController.swift */,
+			);
+			path = HabitDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +203,7 @@
 				F4B0496327AA800500CB5AB7 /* InfoViewController.swift in Sources */,
 				F4A70A9427B125A8003E34FF /* ReusableProtocol.swift in Sources */,
 				F4A70A9627B12A04003E34FF /* TestDataHabitsCell.swift in Sources */,
+				F4A70A9827B1537B003E34FF /* HabitDetailsViewController.swift in Sources */,
 				F423084127AD1E1E00E880C7 /* InformationData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,7 +351,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -368,7 +380,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
