@@ -94,6 +94,7 @@ extension HabitDetailsViewController: UITableViewDelegate {
     // Определения размера шрифта для header'a
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.frame.size.width = tableView.frame.size.width
         header.textLabel?.font = UIFont.systemFont(ofSize: 13)
         header.textLabel?.textColor = UIColor(red: 0.235, green: 0.235, blue: 0.263, alpha: 0.6)
     }
