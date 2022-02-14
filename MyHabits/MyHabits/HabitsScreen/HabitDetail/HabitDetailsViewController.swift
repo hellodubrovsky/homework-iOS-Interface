@@ -23,7 +23,7 @@ final class HabitDetailsViewController: UIViewController {
     }()
     
     private lazy var addingHabitButton: UIBarButtonItem = {
-        let item = UIBarButtonItem(title: "Править", style: .done, target: self, action: #selector(changingTimeHabits))
+        let item = UIBarButtonItem(title: "Править", style: .done, target: self, action: #selector(changingHabits))
         return item
     }()
     
@@ -50,8 +50,11 @@ final class HabitDetailsViewController: UIViewController {
         ])
     }
     
-    @objc private func changingTimeHabits() {
-        print("Pressed edit bar item, method -> changingTimeHabits")
+    @objc private func changingHabits() {
+        let changingHabitView = HabitViewController()
+        changingHabitView.title = "Править"
+        changingHabitView.typeHabbit = true
+        self.navigationController?.pushViewController(changingHabitView, animated: true)
     }
 }
 

@@ -8,6 +8,10 @@ final class HabitsViewController: UIViewController {
         setupLayout()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     
     
     // MARK: Private objects
@@ -41,6 +45,10 @@ final class HabitsViewController: UIViewController {
                              
     @objc private func showTheWindowForAddingNewHabit() {
         print("Pressed plus bar item")
+        let addingHabitViewController = HabitViewController()
+        addingHabitViewController.title = "Создать"
+        
+        self.navigationController?.pushViewController(addingHabitViewController, animated: true)
     }
     
     private func setupView() {
