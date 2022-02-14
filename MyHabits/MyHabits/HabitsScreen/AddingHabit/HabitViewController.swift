@@ -12,7 +12,8 @@ final class HabitViewController: UIViewController {
 
     // MARK: Public objects
     // TRUE -> редактирование, FALSE -> добавление.
-    public var typeHabbit: Bool = false
+    public var typeHabit: Bool = false
+    public var indexElement: Int?
     
 
     
@@ -73,24 +74,26 @@ final class HabitViewController: UIViewController {
     
     // Action objects
     
-    public let titleHabitTextField: UITextField = {
+    public lazy var titleHabitTextField: UITextField = {
         let titleHabit = UITextField()
         titleHabit.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 22))
         titleHabit.font = .boldSystemFont(ofSize: 17)
         titleHabit.textColor = UIColor.init(named: "blueColorApp")
         titleHabit.attributedPlaceholder = NSAttributedString.init(string: "Бегать по утрам, спать 8 часов и т.п.")
         titleHabit.translatesAutoresizingMaskIntoConstraints = false
+        
+        guard typeHabit else { return titleHabit }
+        titleHabit.text = HabitsStore.shared.habits[self.indexElement!].name
         return titleHabit
     }()
     
     private lazy var colorSettingButton: UIButton = {
         let button = UIButton()
-        
-        // TODO: Необходимо получать цвет из data.
-        button.backgroundColor = .blue
+        let store = HabitsStore.shared
         button.layer.cornerRadius = 15
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(presentColorPicker), for: .touchUpInside)
+        button.backgroundColor = typeHabit ? HabitsStore.shared.habits[self.indexElement!].color : HabitsStore.shared.habits.last?.color ?? .orange
         return button
     }()
     
@@ -101,12 +104,15 @@ final class HabitViewController: UIViewController {
         return label
     }()
     
-    private let habbitDatePicker: UIDatePicker = {
+    private lazy var habbitDatePicker: UIDatePicker = {
         var datePicker = UIDatePicker()
         datePicker.datePickerMode = .time
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.addTarget(self, action: #selector(editDatePicker), for: .valueChanged)
         datePicker.translatesAutoresizingMaskIntoConstraints = false
+        
+        guard typeHabit else { return datePicker }
+        datePicker.date = HabitsStore.shared.habits[self.indexElement!].date
         return datePicker
     }()
     
@@ -130,16 +136,22 @@ final class HabitViewController: UIViewController {
     
     @objc private func keepinTheHabit() {
         guard !titleHabitTextField.text!.isEmpty else { return }
-        
-        // TODO: Тут должно происсходить сохранение данных
+        if typeHabit {
+            // Изменение привычки
+            HabitsStore.shared.habits[indexElement!] = .init(name: titleHabitTextField.text!, date: habbitDatePicker.date, color: colorSettingButton.backgroundColor!)
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            // Сохранение привычки
+            let newHabit = Habit(name: titleHabitTextField.text!, date: habbitDatePicker.date, color: colorSettingButton.backgroundColor!)
+            let store = HabitsStore.shared
+            store.habits.append(newHabit)
+        }
         self.navigationController?.popViewController(animated: true)
     }
     
     @objc private func presentColorPicker() {
         let colorPicker = UIColorPickerViewController()
-        
-        // TODO: Убрать проверку, после того, как будет реализован подбор цвета из date.
-        colorPicker.selectedColor = self.colorSettingButton.backgroundColor ?? .blue
+        colorPicker.selectedColor = self.colorSettingButton.backgroundColor!
         colorPicker.delegate = self
         self.present(colorPicker, animated: true, completion: nil)
     }
@@ -150,13 +162,13 @@ final class HabitViewController: UIViewController {
     
     @objc private func deleteHabbit() {
         let buttonClickOK = { (_: UIAlertAction) -> Void in
+            HabitsStore.shared.habits.remove(at: self.indexElement!)
+            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
             
-            // TODO: Тут должно происходить удаление привычки
-            self.navigationController?.popViewController(animated: true)
-            self.navigationController?.popViewController(animated: true)
         }
         
-        let alert = UIAlertController(title: "Удалить привычку", message: "Вы хотите удалить привычку 'название выбранной привычки'?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Удалить привычку", message: "Вы хотите удалить привычку\n'\(HabitsStore.shared.habits[indexElement!].name)'?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Отмена", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Удалить", style: .default, handler: buttonClickOK))
         self.present(alert, animated: true, completion: nil)
@@ -171,6 +183,8 @@ final class HabitViewController: UIViewController {
         let attributedString2 = NSMutableAttributedString(string: formatter.string(from: habbitDatePicker.date), attributes:attrs2)
         attributedString1.append(attributedString2)
         return attributedString1
+        
+        // typeHabit ? HabitsStore.shared.habits[indexRemoveElement!].date : habbitDatePicker.date
     }
     
     private func setupView() {
@@ -191,7 +205,7 @@ final class HabitViewController: UIViewController {
         contentView.addSubview(habbitDatePicker)
         
         // Если привычку редактируем, тогда добавляем кнопку удаления.
-        guard typeHabbit else { return }
+        guard typeHabit else { return }
         contentView.addSubview(deleteHabitButton)
         deleteHabitButton.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -18).isActive = true
         deleteHabitButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true

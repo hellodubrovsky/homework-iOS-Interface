@@ -25,9 +25,9 @@ final class ProgressCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private var textPercentageOfProgressLabel: UILabel = {
+    private lazy var textPercentageOfProgressLabel: UILabel = {
         let label = UILabel()
-        label.text = "25%"
+        label.text = String(Int(self.progressBarView.progress * 100)) + "%"
         label.font = UIFont.boldSystemFont(ofSize: 13)
         label.textColor = UIColor(red: 0.557, green: 0.557, blue: 0.576, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -36,7 +36,7 @@ final class ProgressCollectionViewCell: UICollectionViewCell {
     
     private var progressBarView: UIProgressView = {
         let progress = UIProgressView()
-        progress.progress = 0.25
+        progress.progress = 0.50
         progress.trackTintColor = UIColor(red: 0.847, green: 0.847, blue: 0.847, alpha: 1)
         progress.progressTintColor = UIColor(named: "purpleColorApp")
         progress.translatesAutoresizingMaskIntoConstraints = false

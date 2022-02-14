@@ -10,6 +10,11 @@ final class HabitDetailsViewController: UIViewController {
     
     
     
+    // MARK: Public objects
+    public var indexElement: Int?
+    
+    
+    
     // MARK: Private objects
     
     private let identifierTable = String(describing: self)
@@ -53,7 +58,8 @@ final class HabitDetailsViewController: UIViewController {
     @objc private func changingHabits() {
         let changingHabitView = HabitViewController()
         changingHabitView.title = "Править"
-        changingHabitView.typeHabbit = true
+        changingHabitView.typeHabit = true
+        changingHabitView.indexElement = self.indexElement
         self.navigationController?.pushViewController(changingHabitView, animated: true)
     }
 }

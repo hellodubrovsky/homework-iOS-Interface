@@ -10,6 +10,7 @@ final class HabitsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.collectionView.reloadData()
     }
     
     
@@ -93,7 +94,7 @@ extension HabitsViewController: UICollectionViewDataSource {
     
     // Количество ячеек в секциях
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard section == 0 else { return dataCell.count }
+        guard section == 0 else { return HabitsStore.shared.habits.count }
         return 1
     }
     
@@ -105,8 +106,8 @@ extension HabitsViewController: UICollectionViewDataSource {
             return cell
         default:
             guard let cell: HabitsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: HabitsCollectionViewCell.identifier, for: indexPath) as? HabitsCollectionViewCell else { fatalError() }
-            let data = dataCell[indexPath.row]
-            cell.update(title: data.title, subtitle: data.subtitle, counter: data.counter, statusImage: data.statusImage, color: data.color)
+            let store = HabitsStore.shared.habits[indexPath.row]
+            cell.update(title: store.name, subtitle: store.dateString, counter: 0, statusImage: store.isAlreadyTakenToday, color: store.color)
             return cell
         }
     }
@@ -138,6 +139,7 @@ extension HabitsViewController: UICollectionViewDelegateFlowLayout {
         guard indexPath.section == 1 else { return }
         let detail = HabitDetailsViewController()
         detail.title = dataCell[indexPath.row].title
+        detail.indexElement = indexPath.row
         self.navigationController?.pushViewController(detail, animated: true)
     }
 }
