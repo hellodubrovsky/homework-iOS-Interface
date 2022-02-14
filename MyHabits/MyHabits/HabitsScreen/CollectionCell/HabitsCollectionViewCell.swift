@@ -16,13 +16,13 @@ final class HabitsCollectionViewCell: UICollectionViewCell {
     
     // MARK: Public method
     
-    func update(title: String, subtitle: String, counter: Int, statusImage: UIImage, color: UIColor) {
+    func update(title: String, subtitle: String, counter: Int, statusImage: Bool, color: UIColor) {
         titleHabits.text = title
         titleHabits.textColor = color
         subtitleHabits.text = subtitle
         counterHabits.text = "Счётчик: \(counter)"
-        statusHabits.image = statusImage
-        statusHabits.tintColor = color
+        statusHabitsButton.tintColor = color
+        statusImage ? statusHabitsButton.setImage(UIImage(systemName: "checkmark.circle.fill")!, for: .normal) : statusHabitsButton.setImage(UIImage(systemName: "circle")!, for: .normal)
     }
     
     
@@ -53,15 +53,31 @@ final class HabitsCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private var statusHabits: UIImageView = {
-        var status = UIImageView(frame: .zero)
-        status.translatesAutoresizingMaskIntoConstraints = false
-        return status
+    private var statusHabitsButton: UIButton = {
+        var button = UIButton(frame: .zero)
+        button.addTarget(self, action: #selector(changeStatusHabit), for: .touchUpInside)
+        button.contentVerticalAlignment = .fill
+        button.contentHorizontalAlignment = .fill
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
     
     
     // MARK: Private methods
+    
+    @objc private func changeStatusHabit() {
+        
+        if statusHabitsButton.currentImage == UIImage(systemName: "checkmark.circle.fill")! {
+            
+            // TODO: ТУТ НУЖНО ОТМЕЧАТЬ НЕВЫПОЛННЕЮ ПРИВЫЧКУ
+            statusHabitsButton.setImage(UIImage(systemName: "circle")!, for: .normal)
+        } else {
+            
+            // TODO: ТУТ НУЖНО ОТМЕЧАТЬ ВЫПОЛННЕЮ ПРИВЫЧКУ
+            statusHabitsButton.setImage(UIImage(systemName: "checkmark.circle.fill")!, for: .normal)
+        }
+    }
     
     private func setupView() {
         contentView.clipsToBounds = true
@@ -70,7 +86,7 @@ final class HabitsCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(titleHabits)
         contentView.addSubview(subtitleHabits)
         contentView.addSubview(counterHabits)
-        contentView.addSubview(statusHabits)
+        contentView.addSubview(statusHabitsButton)
     }
     
     private func setupLayout() {
@@ -84,10 +100,10 @@ final class HabitsCollectionViewCell: UICollectionViewCell {
             counterHabits.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 92),
             counterHabits.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             counterHabits.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
-            statusHabits.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 46),
-            statusHabits.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25),
-            statusHabits.widthAnchor.constraint(equalToConstant: 38),
-            statusHabits.heightAnchor.constraint(equalToConstant: 38)
+            statusHabitsButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 46),
+            statusHabitsButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25),
+            statusHabitsButton.widthAnchor.constraint(equalToConstant: 38),
+            statusHabitsButton.heightAnchor.constraint(equalToConstant: 38)
         ])
     }
 }
