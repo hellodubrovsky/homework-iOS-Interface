@@ -45,10 +45,8 @@ final class HabitsViewController: UIViewController {
     // MARK: Private methods
                              
     @objc private func showTheWindowForAddingNewHabit() {
-        print("Pressed plus bar item")
         let addingHabitViewController = HabitViewController()
         addingHabitViewController.title = "Создать"
-        
         self.navigationController?.pushViewController(addingHabitViewController, animated: true)
     }
     
@@ -138,7 +136,7 @@ extension HabitsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard indexPath.section == 1 else { return }
         let detail = HabitDetailsViewController()
-        detail.title = dataCell[indexPath.row].title
+        detail.title = HabitsStore.shared.habits[indexPath.row].name
         detail.indexElement = indexPath.row
         self.navigationController?.pushViewController(detail, animated: true)
     }
