@@ -12,6 +12,18 @@ final class ProgressCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /// Отсутупы для элементов.
+    private enum LayoutConstants {
+        static let topForTitle = 10.0
+        static let topForProgress = 38.0
+        static let bottomForProgress = -15.0
+        static let heightProgress = 7.0
+        static let tralling = -12.0
+        static let leading = 12.0
+    }
+    
+    
+    
     
     
     // MARK: Private objects
@@ -36,7 +48,7 @@ final class ProgressCollectionViewCell: UICollectionViewCell {
     
     private var progressBarView: UIProgressView = {
         let progress = UIProgressView()
-        progress.progress = 0.50
+        progress.progress = HabitsStore.shared.todayProgress
         progress.trackTintColor = UIColor(red: 0.847, green: 0.847, blue: 0.847, alpha: 1)
         progress.progressTintColor = UIColor(named: "purpleColorApp")
         progress.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +57,9 @@ final class ProgressCollectionViewCell: UICollectionViewCell {
     
     
     
-    // MARK: Private methods
+    
+    
+    // MARK: SET VIEW
     
     private func setupView() {
         contentView.clipsToBounds = true
@@ -58,18 +72,20 @@ final class ProgressCollectionViewCell: UICollectionViewCell {
     
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            titleProgressCellLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            titleProgressCellLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
-            textPercentageOfProgressLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            textPercentageOfProgressLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
-            progressBarView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 38),
-            progressBarView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
-            progressBarView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
-            progressBarView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
-            progressBarView.heightAnchor.constraint(equalToConstant: 7),
+            titleProgressCellLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: LayoutConstants.topForTitle),
+            titleProgressCellLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutConstants.leading),
+            textPercentageOfProgressLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: LayoutConstants.topForTitle),
+            textPercentageOfProgressLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: LayoutConstants.tralling),
+            progressBarView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: LayoutConstants.topForProgress),
+            progressBarView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutConstants.leading),
+            progressBarView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: LayoutConstants.tralling),
+            progressBarView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: LayoutConstants.bottomForProgress),
+            progressBarView.heightAnchor.constraint(equalToConstant: LayoutConstants.heightProgress),
         ])
     }
 }
+
+
 
 
 

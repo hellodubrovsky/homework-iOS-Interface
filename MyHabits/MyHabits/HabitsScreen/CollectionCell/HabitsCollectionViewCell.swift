@@ -13,6 +13,30 @@ final class HabitsCollectionViewCell: UICollectionViewCell {
     }
     
     
+    /// Отсутупы для элементов.
+    private enum LayoutConstants {
+        static let bottom = -20.0
+        static let leading = 20.0
+        static let tralling = -75.0
+        static let topForTitle = 20.0
+        static let topForSubtitle = 4.0
+        static let topForCounter = 92.0
+        static let topForStatus = 46.0
+        static let trallingForStatus = -25.9
+        static let weightStatus = 38.0
+        static let heightStatus = 38.0
+    }
+    
+    
+    
+    
+    
+    // TODO: Это нужно нахрен выпилить! И заменить инициализатором
+    public var indexElement: Int?
+    
+    
+    
+    
     
     // MARK: Public method
     
@@ -24,6 +48,8 @@ final class HabitsCollectionViewCell: UICollectionViewCell {
         statusHabitsButton.tintColor = color
         statusImage ? statusHabitsButton.setImage(UIImage(systemName: "checkmark.circle.fill")!, for: .normal) : statusHabitsButton.setImage(UIImage(systemName: "circle")!, for: .normal)
     }
+    
+    
     
     
     
@@ -64,20 +90,25 @@ final class HabitsCollectionViewCell: UICollectionViewCell {
     
     
     
+    
+    
     // MARK: Private methods
     
     @objc private func changeStatusHabit() {
-        
-        if statusHabitsButton.currentImage == UIImage(systemName: "checkmark.circle.fill")! {
+        if statusHabitsButton.currentImage == UIImage(systemName: "circle")! {
             
-            // TODO: ТУТ НУЖНО ОТМЕЧАТЬ НЕВЫПОЛННЕЮ ПРИВЫЧКУ
-            statusHabitsButton.setImage(UIImage(systemName: "circle")!, for: .normal)
-        } else {
-            
-            // TODO: ТУТ НУЖНО ОТМЕЧАТЬ ВЫПОЛННЕЮ ПРИВЫЧКУ
+            HabitsStore.shared.track(HabitsStore.shared.habits[indexElement!])
             statusHabitsButton.setImage(UIImage(systemName: "checkmark.circle.fill")!, for: .normal)
+            
+            // TODO: Тут нужен наблюдатель
+            
         }
     }
+    
+    
+    
+    
+    // MARK: SET VIEW
     
     private func setupView() {
         contentView.clipsToBounds = true
@@ -91,19 +122,22 @@ final class HabitsCollectionViewCell: UICollectionViewCell {
     
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            titleHabits.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            titleHabits.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            titleHabits.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -75),
-            subtitleHabits.topAnchor.constraint(equalTo: titleHabits.bottomAnchor, constant: 4),
-            subtitleHabits.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            subtitleHabits.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -75),
-            counterHabits.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 92),
-            counterHabits.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            counterHabits.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
-            statusHabitsButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 46),
-            statusHabitsButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25),
-            statusHabitsButton.widthAnchor.constraint(equalToConstant: 38),
-            statusHabitsButton.heightAnchor.constraint(equalToConstant: 38)
+            titleHabits.topAnchor.constraint(equalTo: contentView.topAnchor, constant: LayoutConstants.topForTitle),
+            titleHabits.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutConstants.leading),
+            titleHabits.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: LayoutConstants.tralling),
+            
+            subtitleHabits.topAnchor.constraint(equalTo: titleHabits.bottomAnchor, constant: LayoutConstants.topForSubtitle),
+            subtitleHabits.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutConstants.leading),
+            subtitleHabits.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: LayoutConstants.tralling),
+            
+            counterHabits.topAnchor.constraint(equalTo: contentView.topAnchor, constant: LayoutConstants.topForCounter),
+            counterHabits.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutConstants.leading),
+            counterHabits.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: LayoutConstants.bottom),
+            
+            statusHabitsButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: LayoutConstants.topForStatus),
+            statusHabitsButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: LayoutConstants.trallingForStatus),
+            statusHabitsButton.widthAnchor.constraint(equalToConstant: LayoutConstants.weightStatus),
+            statusHabitsButton.heightAnchor.constraint(equalToConstant: LayoutConstants.heightStatus)
         ])
     }
 }

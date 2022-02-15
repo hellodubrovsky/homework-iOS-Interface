@@ -10,8 +10,22 @@ final class HabitDetailsViewController: UIViewController {
     
     
     
-    // MARK: Public objects
-    public var indexElement: Int?
+    
+    
+    // MARK: Getting data
+    
+    init(habit: Habit) {
+        self.habit = habit
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private var habit: Habit?
+    
+    
     
     
     
@@ -37,6 +51,7 @@ final class HabitDetailsViewController: UIViewController {
     // MARK: Private methods
     
     private func setupView() {
+        self.title = habit!.name
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationController?.navigationBar.tintColor = UIColor(named: "purpleColorApp")
         self.navigationItem.rightBarButtonItem = addingHabitButton
@@ -56,11 +71,17 @@ final class HabitDetailsViewController: UIViewController {
     }
     
     @objc private func changingHabits() {
-        let changingHabitView = HabitViewController()
+        let changingHabitView = HabitViewController(habit: self.habit!, typeHabit: .edit)
         changingHabitView.title = "Править"
-        changingHabitView.typeHabit = true
-        changingHabitView.indexElement = self.indexElement
         self.navigationController?.pushViewController(changingHabitView, animated: true)
+        
+        // TODO: Нужно показывать экран модально! Код открытия модально ниже:
+        
+        /*
+        let navigationController = UINavigationController()
+        let rootView = HabitViewController(habit: nil, typeHabit: .edit)
+        navigationController.setViewControllers([rootView], animated: false)
+        present(navigationController, animated: true) */
     }
 }
 
@@ -72,14 +93,25 @@ extension HabitDetailsViewController: UITableViewDataSource {
     
     // Количество ячеек в таблице
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.testData.count
+        return HabitsStore.shared.dates.count
     }
     
     // Заполнение ячеек данными
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: identifierTable) else { fatalError() }
-        cell.textLabel?.text = self.testData[indexPath.row]
+        
+        // TODO: В ячейку нужно класть даты, в которых привычка была выполнена.
+        let date = HabitsStore.shared.dates[indexPath.row]
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE HH:mm"
+        
+        cell.textLabel?.text = dateFormatter.string(from: date)
         cell.textLabel?.font = UIFont.systemFont(ofSize: 17)
+        cell.selectionStyle = .none
+        
+        // TODO: Тут нужно устанавливать чекмарк на нужные даты.
+        guard indexPath.row == 1 || indexPath.row == 3 else { return cell }
+        cell.accessoryType = .checkmark
         return cell
     }
     
@@ -94,11 +126,6 @@ extension HabitDetailsViewController: UITableViewDataSource {
 // MARK: - HabitDetailsViewController -> Delegate
 
 extension HabitDetailsViewController: UITableViewDelegate {
-    
-    // Обработка нажатия по ячейке
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped cell number \(indexPath.row).")
-    }
     
     // Определения размера шрифта для header'a
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

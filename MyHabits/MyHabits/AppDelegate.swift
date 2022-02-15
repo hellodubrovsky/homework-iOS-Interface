@@ -14,42 +14,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // Создание viewController'ов
+        /// Создание viewController'ов
         let habitsViewController = HabitsViewController()
         let infoViewController = InfoViewController()
         
-        // Создание navigationController'ов
+        /// Создание navigationController'ов
         let habitsNavigationController = UINavigationController(rootViewController: habitsViewController)
         let infoNavigationController = UINavigationController(rootViewController: infoViewController)
         
-        // Создание tabBarItem'ов
+        /// Создание tabBarItem'ов
         let itemHabitsView = UITabBarItem()
         let itemInfoView = UITabBarItem()
         
-        // Добавления иконок к tabBarItem'м
+        /// Добавления иконок к tabBarItem'м
         itemHabitsView.image = UIImage(systemName: "command.square.fill")
         itemInfoView.image = UIImage(systemName: "info.circle.fill")
         
-        // Добавление заголовков к tabBarItem'м
+        /// Добавление заголовков к tabBarItem'м
         itemHabitsView.title = "Привычки"
         itemInfoView.title = "Информация"
         
-        // Возврат navigationController к реализации до iOS 13
+        /// Возврат navigationController к реализации до iOS 13
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = UIColor(named: "whiteColorApp")
         habitsNavigationController.navigationBar.scrollEdgeAppearance = appearance
         infoNavigationController.navigationBar.scrollEdgeAppearance = appearance
         
-        // Присваиваем tabBarItem'м соответсующие контроллеры
+        /// Присваиваем tabBarItem'м соответсующие контроллеры
         habitsNavigationController.tabBarItem = itemHabitsView
         infoNavigationController.tabBarItem = itemInfoView
         
-        // Создание tabBarController'a
+        /// Создание tabBarController'a
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [habitsNavigationController, infoNavigationController]
         tabBarController.selectedViewController = habitsNavigationController
         
-        // Изменение цвета tabBarController'а
+        /// Изменение цвета tabBarController'а
         tabBarController.tabBar.tintColor = .black
         tabBarController.tabBar.unselectedItemTintColor = .gray
         tabBarController.tabBar.backgroundColor = UIColor(named: "whiteColorApp")
