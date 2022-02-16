@@ -25,7 +25,8 @@ class PostTableViewCell: UITableViewCell {
     
     
     
-    // MARK: - Private object's
+    // MARK: Private object's
+    
     private lazy var authorPostLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20)
@@ -71,7 +72,8 @@ class PostTableViewCell: UITableViewCell {
     
     
     
-    // MARK: - Public method's
+    // MARK: Public method's
+    
     public func update(name: String, image: UIImage, description: String, countLikes: Int, countViews: Int) {
         authorPostLabel.text = name
         postImageView.image = image
@@ -82,7 +84,8 @@ class PostTableViewCell: UITableViewCell {
     
     
 
-    // MARK: - Private method's
+    // MARK: Private method's
+    
     private func addLayoutConstraint() {
         NSLayoutConstraint.activate([
             contentView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width + 186),

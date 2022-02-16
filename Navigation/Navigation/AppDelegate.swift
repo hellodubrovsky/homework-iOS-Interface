@@ -51,11 +51,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Создание tabBar и добавление в него, навигационных стеков, и по умолчаниию, выбираем экран с постами.
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [feedNavigationController, profileNavigationController]
-        tabBarController.selectedViewController = feedNavigationController
+        tabBarController.selectedViewController = profileNavigationController//feedNavigationController
         
         // Изменяем дизайн tabBar.
-        //tabBarController.tabBar.layer.borderWidth = 0.3
-        //tabBarController.tabBar.layer.borderColor = UIColor(red: CGFloat(253.0 / 255.0), green: CGFloat(112.0 / 255.0), blue: CGFloat(20.0 / 255.0), alpha: CGFloat(1.0)).cgColor
         tabBarController.tabBar.backgroundColor = UIColor(red: CGFloat(238.0 / 255.0), green: CGFloat(238.0 / 255.0), blue: CGFloat(238.0 / 255.0), alpha: CGFloat(1.0))
         
         // Изменение цвета заголовка у активных и неактивных tabBarItem'в.

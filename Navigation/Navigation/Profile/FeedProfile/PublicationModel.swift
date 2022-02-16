@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-// MARK: - Модель публикации
+// MARK: - Модель публикации постов.
 
 struct PostUsers {
     var author: String
