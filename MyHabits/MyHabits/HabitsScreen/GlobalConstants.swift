@@ -5,4 +5,6 @@ struct GlobalConstants {
         case add
         case edit
     }
+    
+    static let progressCellNotificationKey = "hellodubrovsky.progress"
 }

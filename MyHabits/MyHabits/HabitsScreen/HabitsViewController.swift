@@ -6,12 +6,16 @@ final class HabitsViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupLayout()
+        createObserversProgress()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.collectionView.reloadData()
     }
+    
+    /// Ссылка на ячейку прогресса для дальнейшего обновления
+    private weak var progressCell: ProgressCollectionViewCell?
     
     
     
@@ -95,6 +99,20 @@ final class HabitsViewController: UIViewController {
             collectionView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
         ])
     }
+    
+    
+    
+    
+    // MARK: Observers progress.
+    
+    private func createObserversProgress() {
+        let progressNotification = Notification.Name(rawValue: GlobalConstants.progressCellNotificationKey)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateProgressCell), name: progressNotification, object: nil)
+    }
+    
+    @objc private func updateProgressCell() {
+        progressCell!.updateProgress()
+    }
 }
 
 
@@ -121,6 +139,11 @@ extension HabitsViewController: UICollectionViewDataSource {
         switch indexPath.section {
         case 0:
             guard let cell: ProgressCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: ProgressCollectionViewCell.identifier, for: indexPath) as? ProgressCollectionViewCell else { fatalError() }
+            
+            if progressCell == nil {
+                progressCell = cell
+            }
+            
             return cell
         default:
             guard let cell: HabitsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: HabitsCollectionViewCell.identifier, for: indexPath) as? HabitsCollectionViewCell else { fatalError() }

@@ -176,6 +176,8 @@ final class HabitViewController: UIViewController {
             let newHabit = Habit(name: titleHabitTextField.text!, date: habbitDatePicker.date, color: colorSettingButton.backgroundColor!)
             let store = HabitsStore.shared
             store.habits.append(newHabit)
+            let nameNotification = Notification.Name(rawValue: GlobalConstants.progressCellNotificationKey)
+            NotificationCenter.default.post(name: nameNotification, object: nil)
         }
         self.navigationController?.popViewController(animated: true)
     }
@@ -212,6 +214,8 @@ final class HabitViewController: UIViewController {
             HabitsStore.shared.habits.remove(at: indexItem!)
             self.navigationController?.popViewController(animated: true)
             self.navigationController?.popViewController(animated: true)
+            let nameNotification = Notification.Name(rawValue: GlobalConstants.progressCellNotificationKey)
+            NotificationCenter.default.post(name: nameNotification, object: nil)
         }
         let alert = UIAlertController(title: "Удалить привычку", message: "Вы хотите удалить привычку\n'\(self.habit!.name)'?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Отмена", style: .default, handler: nil))

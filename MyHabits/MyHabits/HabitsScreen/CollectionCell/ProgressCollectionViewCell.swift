@@ -25,6 +25,16 @@ final class ProgressCollectionViewCell: UICollectionViewCell {
     
     
     
+    // MARK: Public method (update progress)
+    
+    public func updateProgress() {
+        progressBarView.setProgress(HabitsStore.shared.todayProgress, animated: true)
+        textPercentageOfProgressLabel.text = String(Int(self.progressBarView.progress * 100)) + "%"
+    }
+    
+    
+    
+    
     
     // MARK: Private objects
     
@@ -47,8 +57,8 @@ final class ProgressCollectionViewCell: UICollectionViewCell {
     }()
     
     private var progressBarView: UIProgressView = {
-        let progress = UIProgressView()
-        progress.progress = HabitsStore.shared.todayProgress
+        let progress = UIProgressView(progressViewStyle: .bar)
+        progress.setProgress(HabitsStore.shared.todayProgress, animated: false)
         progress.trackTintColor = UIColor(red: 0.847, green: 0.847, blue: 0.847, alpha: 1)
         progress.progressTintColor = UIColor(named: "purpleColorApp")
         progress.translatesAutoresizingMaskIntoConstraints = false

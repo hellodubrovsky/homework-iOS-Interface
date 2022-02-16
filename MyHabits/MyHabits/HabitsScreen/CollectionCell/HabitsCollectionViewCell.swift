@@ -31,14 +31,9 @@ final class HabitsCollectionViewCell: UICollectionViewCell {
     
     
     
-    // TODO: Это нужно нахрен выпилить! И заменить инициализатором
-    public var indexElement: Int?
-    
-    
-    
-    
-    
     // MARK: Public method
+    
+    var indexElement: Int?
     
     func update(title: String, subtitle: String, counter: Int, statusImage: Bool, color: UIColor) {
         titleHabits.text = title
@@ -94,16 +89,15 @@ final class HabitsCollectionViewCell: UICollectionViewCell {
     
     // MARK: Private methods
     
+    /// Обработка, нажатия на кнопку выполенения.
     @objc private func changeStatusHabit() {
-        if statusHabitsButton.currentImage == UIImage(systemName: "circle")! {
-            
-            HabitsStore.shared.track(HabitsStore.shared.habits[indexElement!])
-            statusHabitsButton.setImage(UIImage(systemName: "checkmark.circle.fill")!, for: .normal)
-            
-            // TODO: Тут нужен наблюдатель
-            
-        }
+        guard statusHabitsButton.currentImage == UIImage(systemName: "circle")! else { return }
+        statusHabitsButton.setImage(UIImage(systemName: "checkmark.circle.fill")!, for: .normal)
+        HabitsStore.shared.track(HabitsStore.shared.habits[indexElement!])
+        let nameNotification = Notification.Name(rawValue: GlobalConstants.progressCellNotificationKey)
+        NotificationCenter.default.post(name: nameNotification, object: nil)
     }
+    
     
     
     
