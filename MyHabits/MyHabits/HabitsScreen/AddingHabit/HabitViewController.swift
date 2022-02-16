@@ -161,7 +161,7 @@ final class HabitViewController: UIViewController {
     
     /// Нажатие кнопки "Отмена"
     @objc private func returnToThePreviousScreen() {
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true)
     }
     
     /// Нажатие кнопки "Сохранить"
@@ -169,8 +169,12 @@ final class HabitViewController: UIViewController {
         guard !titleHabitTextField.text!.isEmpty else { return }
         if typeHabit == .edit {
             // Изменение привычки
-            self.habit? = .init(name: titleHabitTextField.text!, date: habbitDatePicker.date, color: colorSettingButton.backgroundColor!)
-            self.navigationController?.popViewController(animated: true)
+            let indexItem = HabitsStore.shared.habits.firstIndex(of: self.habit!)
+            HabitsStore.shared.habits[indexItem!] = .init(name: titleHabitTextField.text!, date: habbitDatePicker.date, color: colorSettingButton.backgroundColor!)
+            self.habit = .init(name: titleHabitTextField.text!, date: habbitDatePicker.date, color: colorSettingButton.backgroundColor!)
+            
+            // TODO: ТУТ НУЖНО ПОНЯТЬ, КАК ПЕРЕДАВАТЬ В DETAIL НОВЫЕ ДАННЫЕ, В ТОМ ЧИСЛЕ И ЗАГОЛОВОК
+            
         } else {
             // Сохранение привычки
             let newHabit = Habit(name: titleHabitTextField.text!, date: habbitDatePicker.date, color: colorSettingButton.backgroundColor!)
@@ -178,8 +182,11 @@ final class HabitViewController: UIViewController {
             store.habits.append(newHabit)
             let nameNotification = Notification.Name(rawValue: GlobalConstants.progressCellNotificationKey)
             NotificationCenter.default.post(name: nameNotification, object: nil)
+            
         }
-        self.navigationController?.popViewController(animated: true)
+        let nameReloadCellsNotification = Notification.Name(rawValue: GlobalConstants.cellsReloadedNotificationKey)
+        NotificationCenter.default.post(name: nameReloadCellsNotification, object: nil)
+        self.dismiss(animated: true)
     }
     
     /// Нажатие кнопки изменение цвета

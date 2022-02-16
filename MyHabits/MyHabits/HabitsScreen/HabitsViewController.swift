@@ -7,6 +7,7 @@ final class HabitsViewController: UIViewController {
         setupView()
         setupLayout()
         createObserversProgress()
+        createObserversCellHabit()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,17 +54,11 @@ final class HabitsViewController: UIViewController {
     // MARK: Private methods
                              
     @objc private func showTheWindowForAddingNewHabit() {
+        let navigationController = UINavigationController()
         let addingHabitViewController = HabitViewController(habit: nil, typeHabit: .add)
         addingHabitViewController.title = "Создать"
-        self.navigationController?.pushViewController(addingHabitViewController, animated: true)
-        
-        // TODO: Нужно показывать экран модально! Код открытия модально ниже:
-        
-        /*
-        let navigationController = UINavigationController()
-        let rootView = HabitViewController(habit: nil, typeHabit: .add)
-        navigationController.setViewControllers([rootView], animated: false)
-        present(navigationController, animated: true) */
+        navigationController.setViewControllers([addingHabitViewController], animated: false)
+        present(navigationController, animated: true)
     }
     
     
@@ -103,7 +98,7 @@ final class HabitsViewController: UIViewController {
     
     
     
-    // MARK: Observers progress.
+    // MARK: Observers progress and cells.
     
     private func createObserversProgress() {
         let progressNotification = Notification.Name(rawValue: GlobalConstants.progressCellNotificationKey)
@@ -112,6 +107,15 @@ final class HabitsViewController: UIViewController {
     
     @objc private func updateProgressCell() {
         progressCell!.updateProgress()
+    }
+    
+    private func createObserversCellHabit() {
+        let nameReloadCellsNotification = Notification.Name(rawValue: GlobalConstants.cellsReloadedNotificationKey)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadedCollectionView), name: nameReloadCellsNotification, object: nil)
+    }
+    
+    @objc private func reloadedCollectionView() {
+        self.collectionView.reloadData()
     }
 }
 

@@ -7,4 +7,5 @@ struct GlobalConstants {
     }
     
     static let progressCellNotificationKey = "hellodubrovsky.progress"
+    static let cellsReloadedNotificationKey = "hellodubrovsky.habit.cell"
 }

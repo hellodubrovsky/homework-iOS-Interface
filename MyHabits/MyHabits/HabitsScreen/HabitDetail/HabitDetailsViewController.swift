@@ -23,14 +23,12 @@ final class HabitDetailsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private var habit: Habit?
-    
-    
     
     
     
     // MARK: Private objects
     
+    private var habit: Habit?
     private let identifierTable = String(describing: self)
     private let testData: [String] = ["Сегодня", "Вчера", "Позачера", "01 февраля 2022"]
     
@@ -71,17 +69,11 @@ final class HabitDetailsViewController: UIViewController {
     }
     
     @objc private func changingHabits() {
+        let navigationController = UINavigationController()
         let changingHabitView = HabitViewController(habit: self.habit!, typeHabit: .edit)
         changingHabitView.title = "Править"
-        self.navigationController?.pushViewController(changingHabitView, animated: true)
-        
-        // TODO: Нужно показывать экран модально! Код открытия модально ниже:
-        
-        /*
-        let navigationController = UINavigationController()
-        let rootView = HabitViewController(habit: nil, typeHabit: .edit)
-        navigationController.setViewControllers([rootView], animated: false)
-        present(navigationController, animated: true) */
+        navigationController.setViewControllers([changingHabitView], animated: false)
+        present(navigationController, animated: true)
     }
 }
 
