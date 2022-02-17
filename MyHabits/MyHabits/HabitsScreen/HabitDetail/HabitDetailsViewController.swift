@@ -6,6 +6,7 @@ final class HabitDetailsViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupLauout()
+        setupObserver()
     }
     
     
@@ -74,6 +75,21 @@ final class HabitDetailsViewController: UIViewController {
         changingHabitView.title = "Править"
         navigationController.setViewControllers([changingHabitView], animated: false)
         present(navigationController, animated: true)
+    }
+    
+    
+    
+    
+    
+    // MARK: Obesrvers
+    
+    private func setupObserver() {
+        let nameNotification = Notification.Name(rawValue: GlobalConstants.hideScreenDetailNotificationKey)
+        NotificationCenter.default.addObserver(self, selector: #selector(hideDetailScreen), name: nameNotification, object: nil)
+    }
+    
+    @objc private func hideDetailScreen() {
+        navigationController?.popViewController(animated: true)
     }
 }
 

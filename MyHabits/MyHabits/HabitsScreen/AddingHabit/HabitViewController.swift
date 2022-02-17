@@ -172,9 +172,8 @@ final class HabitViewController: UIViewController {
             let indexItem = HabitsStore.shared.habits.firstIndex(of: self.habit!)
             HabitsStore.shared.habits[indexItem!] = .init(name: titleHabitTextField.text!, date: habbitDatePicker.date, color: colorSettingButton.backgroundColor!)
             self.habit = .init(name: titleHabitTextField.text!, date: habbitDatePicker.date, color: colorSettingButton.backgroundColor!)
-            
-            // TODO: ТУТ НУЖНО ПОНЯТЬ, КАК ПЕРЕДАВАТЬ В DETAIL НОВЫЕ ДАННЫЕ, В ТОМ ЧИСЛЕ И ЗАГОЛОВОК
-            
+            let notificationForScreenDetail = Notification.Name(rawValue: GlobalConstants.hideScreenDetailNotificationKey)
+            NotificationCenter.default.post(name: notificationForScreenDetail, object: nil)
         } else {
             // Сохранение привычки
             let newHabit = Habit(name: titleHabitTextField.text!, date: habbitDatePicker.date, color: colorSettingButton.backgroundColor!)
@@ -219,10 +218,15 @@ final class HabitViewController: UIViewController {
         let buttonClickOK = { (_: UIAlertAction) -> Void in
             let indexItem = HabitsStore.shared.habits.firstIndex(of: self.habit!)
             HabitsStore.shared.habits.remove(at: indexItem!)
-            self.navigationController?.popViewController(animated: true)
-            self.navigationController?.popViewController(animated: true)
+            
+            // Нотификация для обновления progressView
             let nameNotification = Notification.Name(rawValue: GlobalConstants.progressCellNotificationKey)
             NotificationCenter.default.post(name: nameNotification, object: nil)
+            
+            // Нотификация для закрытия экрана detail.
+            let notificationForScreenDetail = Notification.Name(rawValue: GlobalConstants.hideScreenDetailNotificationKey)
+            NotificationCenter.default.post(name: notificationForScreenDetail, object: nil)
+            self.dismiss(animated: true)
         }
         let alert = UIAlertController(title: "Удалить привычку", message: "Вы хотите удалить привычку\n'\(self.habit!.name)'?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Отмена", style: .default, handler: nil))
