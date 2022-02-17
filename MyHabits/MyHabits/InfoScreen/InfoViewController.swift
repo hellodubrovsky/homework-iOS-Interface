@@ -22,6 +22,7 @@ final class InfoViewController: UIViewController {
     
     private lazy var informationTextView: UITextView = {
         let textView = UITextView()
+        textView.isEditable = false
         textView.showsVerticalScrollIndicator = false
         textView.attributedText = attributed(text: InformationData.informationText)
         textView.contentInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
