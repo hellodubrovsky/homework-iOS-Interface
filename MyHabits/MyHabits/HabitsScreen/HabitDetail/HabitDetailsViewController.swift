@@ -31,7 +31,6 @@ final class HabitDetailsViewController: UIViewController {
     
     private var habit: Habit?
     private let identifierTable = String(describing: self)
-    private let testData: [String] = ["Сегодня", "Вчера", "Позачера", "01 февраля 2022"]
     
     private var tableView: UITableView = {
         let tableView = UITableView()

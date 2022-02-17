@@ -68,7 +68,7 @@ final class HabitsViewController: UIViewController {
     // MARK: SET VIEW
     
     private func setupView() {
-        title = "Сегодня"
+        self.navigationItem.title = "Сегодня"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.rightBarButtonItem = addingHabitButton
         view.addSubview(scrollView)

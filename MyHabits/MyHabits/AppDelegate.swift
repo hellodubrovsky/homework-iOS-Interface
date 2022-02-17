@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let itemInfoView = UITabBarItem()
         
         /// Добавления иконок к tabBarItem'м
-        itemHabitsView.image = UIImage(systemName: "command.square.fill")
+        itemHabitsView.image = UIImage(systemName: "equal")
         itemInfoView.image = UIImage(systemName: "info.circle.fill")
         
         /// Добавление заголовков к tabBarItem'м
