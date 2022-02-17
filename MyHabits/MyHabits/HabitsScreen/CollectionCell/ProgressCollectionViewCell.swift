@@ -58,6 +58,8 @@ final class ProgressCollectionViewCell: UICollectionViewCell {
     
     private var progressBarView: UIProgressView = {
         let progress = UIProgressView(progressViewStyle: .bar)
+        progress.layer.cornerRadius = 5
+        progress.clipsToBounds = true
         progress.setProgress(HabitsStore.shared.todayProgress, animated: false)
         progress.trackTintColor = UIColor(red: 0.847, green: 0.847, blue: 0.847, alpha: 1)
         progress.progressTintColor = UIColor(named: "purpleColorApp")
