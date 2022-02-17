@@ -91,11 +91,13 @@ final class HabitsCollectionViewCell: UICollectionViewCell {
     
     /// Обработка, нажатия на кнопку выполенения.
     @objc private func changeStatusHabit() {
-        guard statusHabitsButton.currentImage == UIImage(systemName: "circle")! else { return }
+        let data = HabitsStore.shared.habits[indexElement!]
+        guard !data.isAlreadyTakenToday else { return }
         statusHabitsButton.setImage(UIImage(systemName: "checkmark.circle.fill")!, for: .normal)
         HabitsStore.shared.track(HabitsStore.shared.habits[indexElement!])
         let nameNotification = Notification.Name(rawValue: GlobalConstants.progressCellNotificationKey)
         NotificationCenter.default.post(name: nameNotification, object: nil)
+        self.counterHabits.text = "Счётчик: \(HabitsStore.shared.habits[indexElement!].trackDates.count)"
     }
     
     

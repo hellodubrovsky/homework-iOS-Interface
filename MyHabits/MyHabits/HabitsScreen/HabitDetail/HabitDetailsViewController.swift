@@ -111,15 +111,16 @@ extension HabitDetailsViewController: UITableViewDataSource {
         // TODO: В ячейку нужно класть даты, в которых привычка была выполнена.
         let date = HabitsStore.shared.dates[indexPath.row]
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE HH:mm"
+        dateFormatter.dateFormat = "d MMMM yyyy"
         
         cell.textLabel?.text = dateFormatter.string(from: date)
         cell.textLabel?.font = UIFont.systemFont(ofSize: 17)
         cell.selectionStyle = .none
         
-        // TODO: Тут нужно устанавливать чекмарк на нужные даты.
-        guard indexPath.row == 1 || indexPath.row == 3 else { return cell }
-        cell.accessoryType = .checkmark
+        if HabitsStore.shared.habit(habit!, isTrackedIn: date) {
+            cell.accessoryType = .checkmark
+        }
+        
         return cell
     }
     

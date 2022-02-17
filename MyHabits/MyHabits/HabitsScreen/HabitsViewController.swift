@@ -149,7 +149,7 @@ extension HabitsViewController: UICollectionViewDataSource {
             guard let cell: HabitsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: HabitsCollectionViewCell.identifier, for: indexPath) as? HabitsCollectionViewCell else { fatalError() }
             let store = HabitsStore.shared.habits[indexPath.row]
             cell.indexElement = indexPath.row
-            cell.update(title: store.name, subtitle: store.dateString, counter: 0, statusImage: store.isAlreadyTakenToday, color: store.color)
+            cell.update(title: store.name, subtitle: store.dateString, counter: store.trackDates.count, statusImage: store.isAlreadyTakenToday, color: store.color)
             return cell
         }
     }
