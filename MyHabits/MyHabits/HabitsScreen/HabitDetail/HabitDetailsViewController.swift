@@ -50,7 +50,7 @@ final class HabitDetailsViewController: UIViewController {
     
     private func setupView() {
         self.title = habit!.name
-        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.navigationBar.tintColor = UIColor(named: "purpleColorApp")
         self.navigationItem.rightBarButtonItem = addingHabitButton
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: identifierTable)

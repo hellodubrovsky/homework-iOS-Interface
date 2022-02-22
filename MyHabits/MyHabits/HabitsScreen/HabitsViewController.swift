@@ -11,7 +11,6 @@ final class HabitsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.collectionView.reloadData()
     }
     
@@ -70,6 +69,7 @@ final class HabitsViewController: UIViewController {
     private func setupView() {
         self.navigationItem.title = "Сегодня"
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.largeTitleDisplayMode = .always
         self.navigationItem.rightBarButtonItem = addingHabitButton
         view.addSubview(scrollView)
         scrollView.addSubview(collectionView)
