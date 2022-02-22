@@ -170,8 +170,11 @@ final class HabitViewController: UIViewController {
         if typeHabit == .edit {
             // Изменение привычки
             let indexItem = HabitsStore.shared.habits.firstIndex(of: self.habit!)
+            let data = HabitsStore.shared.habits[indexItem!]
             HabitsStore.shared.habits[indexItem!] = .init(name: titleHabitTextField.text!, date: habbitDatePicker.date, color: colorSettingButton.backgroundColor!)
-            HabitsStore.shared.track(HabitsStore.shared.habits[indexItem!])
+            if data.isAlreadyTakenToday {
+                HabitsStore.shared.track(HabitsStore.shared.habits[indexItem!])
+            }
             let notificationForScreenDetail = Notification.Name(rawValue: GlobalConstants.hideScreenDetailNotificationKey)
             NotificationCenter.default.post(name: notificationForScreenDetail, object: nil)
         } else {
