@@ -111,6 +111,7 @@ extension HabitDetailsViewController: UITableViewDataSource {
         let date = HabitsStore.shared.dates[indexPath.row]
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "d MMMM yyyy"
+        //dateFormatter.locale = Locale(identifier: "ru_RU")
         
         cell.textLabel?.text = dateFormatter.string(from: date)
         cell.textLabel?.font = UIFont.systemFont(ofSize: 17)
